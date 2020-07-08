@@ -6,6 +6,9 @@ TagManager:
   tags:
   - projectile
   - FxTemporaire
+  - Police
+  - Grapable
+  - PoliceCome
   layers:
   - Default
   - TransparentFX
