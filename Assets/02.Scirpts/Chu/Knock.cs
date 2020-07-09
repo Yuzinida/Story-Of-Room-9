@@ -75,7 +75,7 @@ public class Knock : MonoBehaviour
 
         iTween.MoveTo(stopSinging.gameObject, ht);
     }    
-    // // 발걸음 멀어지는 코드와 동시에 다시 개기듯 노래 또 부르기 시작하는 장면
+    // // 발걸음 멀어지는 코드와 동시에 다시 개기듯 노래 또 부르기 시작하는 장면  ddddd
     void ReStartSing()
     {
         reStartSing.Play();
