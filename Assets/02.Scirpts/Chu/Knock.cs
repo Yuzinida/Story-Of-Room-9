@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Knock : MonoBehaviour
 {
-    AudioSource knockWall, knockRoomSound, knockRoomSound2, arirangAndStop, stopSinging,reStartSing;
+    AudioSource knockWall;
+    AudioSource knockRoomSound;
+    AudioSource knockRoomSound2;
     bool knockRoom = false;
     int count = 0;
     private void Awake()
@@ -12,9 +14,6 @@ public class Knock : MonoBehaviour
         knockWall = this.GetComponent<AudioSource>();
         knockRoomSound = GameObject.Find("KnockRoom").GetComponent<AudioSource>();
         knockRoomSound2 = GameObject.Find("KnockRoom2").GetComponent<AudioSource>();
-        arirangAndStop = GameObject.Find("ArirangAndStop").GetComponent<AudioSource>();
-        stopSinging = GameObject.Find("StopSinging").GetComponent<AudioSource>();
-        reStartSing = GameObject.Find("ReStartSing").GetComponent<AudioSource>();
             
     }
     //테스트
@@ -44,8 +43,6 @@ public class Knock : MonoBehaviour
             }
         }
     }
-
-    //배식 쪽지 이벤트부터 씬 이야기 진행
     public void NextScene()
     {
         knockRoom = true;
@@ -54,7 +51,6 @@ public class Knock : MonoBehaviour
         arirangAndStop.Play();
         Invoke("StopSinging",37f);
     }
-    // // 플레이어에게 노크 사인주는
     void KnockRoom()
     {
         knockRoomSound2.Play();
