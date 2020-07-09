@@ -17,13 +17,14 @@ public class Knock : MonoBehaviour
         reStartSing = GameObject.Find("ReStartSing").GetComponent<AudioSource>();
             
     }
-    // //테스트
-    //     private void Start()
-    //     {
-    //         NextScene();
-    //         Recede();
-    //     }
-    // //
+    //테스트
+        private void Start()
+        {
+             NextScene();
+            // Recede();
+            //StopSinging();
+        }
+    //
 
     //노크 이벤트
     private void OnTriggerEnter(Collider other)
@@ -51,7 +52,7 @@ public class Knock : MonoBehaviour
         Invoke("KnockRoom",15f);
         Invoke("KnockRoom",20f);
         arirangAndStop.Play();
-        Invoke("StopSinging",52f);
+        Invoke("StopSinging",37f);
     }
     // // 플레이어에게 노크 사인주는
     void KnockRoom()
@@ -63,13 +64,15 @@ public class Knock : MonoBehaviour
     {
         stopSinging.Play();
         knockRoom = false;
-        Invoke("Recede,ReStartSing",8f);
+        Invoke("Recede",8f);
+        Invoke("ReStartSing",14f);
+        
     }
     // // 발걸음 멀어지는 코드
     void Recede()
     {
         Hashtable ht = new Hashtable();
-        ht.Add("time",3.0f);
+        ht.Add("time",5.0f);
         ht.Add("path",iTweenPath.GetPath("Walk"));
         ht.Add("easetype",iTween.EaseType.linear);
 
