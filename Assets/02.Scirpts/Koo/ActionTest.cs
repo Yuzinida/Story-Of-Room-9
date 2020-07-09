@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using Valve.VR;
+using Valve.VR;
 
 public class ActionTest : MonoBehaviour
-{
-    public streamVR_Input_Source handType;          // 모두 사용, 왼손, 오른손
-    public streamVR_Input_Boolean teleportAction;   // 텔레포트 액션
-    public streamVR_Input_Boolean grabAction;       // 그랩 액션
+{ 
+    public SteamVR_Input_Sources handType;          // 모두 사용, 왼손, 오른손
+    public SteamVR_Action_Boolean teleportAction;   // 텔레포트 액션
+    public SteamVR_Action_Boolean grabAction;       // 그랩 액션
 
 
     void Update()
@@ -29,4 +29,5 @@ public class ActionTest : MonoBehaviour
     public bool GetGrab(){
         return grabAction.GetState(handType);
     }
+    
 }
