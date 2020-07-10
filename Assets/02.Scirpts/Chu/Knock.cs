@@ -62,7 +62,7 @@ public class Knock : MonoBehaviour
         stopSinging.Play();
         knockRoom = false;
         Invoke("Recede",8f);
-        Invoke("ReStartSing",14f);
+        Invoke("ReStartSing",15f);
         
     }
     // // 발걸음 멀어지는 코드
@@ -75,7 +75,7 @@ public class Knock : MonoBehaviour
 
         iTween.MoveTo(stopSinging.gameObject, ht);
     }    
-    // // 발걸음 멀어지는 코드와 동시에 다시 개기듯 노래 또 부르기 시작하는 장면  ddddd
+    // // 발걸음 멀어지는 코드와 동시에 다시 개기듯 노래 또 부르기 시작하는 장면 
     void ReStartSing()
     {
         reStartSing.Play();
