@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class Knock : MonoBehaviour
 {
-    AudioSource knockWall,knockRoomSound,knockRoomSound2,arirangAndStop,stopSinging,reStartSing;
+    AudioSource knockWall,knockRoomSound,knockRoomSound2,arirangAndStop,stopSinging,reStartSing,violence,blackOut;
     bool knockRoom = false;
     int count = 0;
     private void Awake()
@@ -15,14 +16,15 @@ public class Knock : MonoBehaviour
         arirangAndStop = GameObject.Find("ArirangAndStop").GetComponent<AudioSource>();
         stopSinging = GameObject.Find("StopSinging").GetComponent<AudioSource>();
         reStartSing = GameObject.Find("ReStartSing").GetComponent<AudioSource>();
+        violence = GameObject.Find("Violence").GetComponent<AudioSource>();
+        blackOut = GameObject.Find("BlackOut").GetComponent<AudioSource>();
             
     }
     //테스트
         private void Start()
         {
              NextScene();
-            // Recede();
-            //StopSinging();
+            //BlackOut();
         }
     //
 
@@ -62,7 +64,7 @@ public class Knock : MonoBehaviour
         stopSinging.Play();
         knockRoom = false;
         Invoke("Recede",8f);
-        Invoke("ReStartSing",15f);
+        Invoke("ReStartSing",13.5f);
         
     }
     // // 발걸음 멀어지는 코드
@@ -79,6 +81,35 @@ public class Knock : MonoBehaviour
     void ReStartSing()
     {
         reStartSing.Play();
+        Invoke("Violence",20.5f);
     }
+    void Violence()
+    {
+        violence.Play();
+        Invoke("BlackOut",15f);
+        Hashtable ht2 = new Hashtable();
+        ht2.Add("time",15f);
+        ht2.Add("path",iTweenPath.GetPath("violence"));
+        ht2.Add("easetype",iTween.EaseType.linear);
+
+        iTween.MoveTo(violence.gameObject, ht2);
+    }    
+    void BlackOut()
+    {
+        blackOut.Play();
+        Invoke("Fade_Out",0.5f);
+        
+    }
+    void Fade_Out()
+    {
+         //set start color
+         SteamVR_Fade.Start(Color.clear, 0f);
+         //set and start fade to
+         SteamVR_Fade.Start(Color.black, 1f);
+    }
+    
+
+
+
 
 }
