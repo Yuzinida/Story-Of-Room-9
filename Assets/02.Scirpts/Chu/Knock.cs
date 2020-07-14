@@ -6,6 +6,7 @@ using Valve.VR;
 public class Knock : MonoBehaviour
 {
     AudioSource knockWall,knockRoomSound,knockRoomSound2,arirangAndStop,stopSinging,reStartSing,violence,blackOut,playerTo;
+    
     bool knockRoom = false;
     int count = 0;
     private void Awake()
@@ -25,7 +26,7 @@ public class Knock : MonoBehaviour
         private void Start()
         {
             // NextScene();
-            // BlackOut();
+            //PlayerTo();
         }
     //
 
@@ -49,9 +50,7 @@ public class Knock : MonoBehaviour
     }
     public void NextScene()
     {
-        //0714 ㅂㅏㅂㄱㅡㄹㅡㅅ ㅅㅣㅈㅏㄱㅃㅏㄹㄹㅣ! ㅉㅗㄱㅈㅣ
-
-
+        //쪽지 받고 난 다음 시간 지연 더 늘리려면 여기
         knockRoom = true;
         Invoke("KnockRoom",15f);
         Invoke("KnockRoom",20f);
