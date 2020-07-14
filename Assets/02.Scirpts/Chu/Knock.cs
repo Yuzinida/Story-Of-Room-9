@@ -23,8 +23,8 @@ public class Knock : MonoBehaviour
     //테스트
         private void Start()
         {
-             NextScene();
-            //BlackOut();
+            // NextScene();
+            // BlackOut();
         }
     //
 

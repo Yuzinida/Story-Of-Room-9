@@ -8,10 +8,11 @@ public class PoliceCall : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
 	{
-		if (other.CompareTag ("Player"))
+		if (other.CompareTag ("Hand"))
 		{
-            Debug.Log("111");
             policeMove.enabled = true;
+            GameObject.Find("PoliceCallArea").SetActive(false);
+            
 
         }
 

@@ -5,31 +5,36 @@ using UnityEngine.Audio;
 
 public class PoliceMove : MonoBehaviour
 {
+    AudioSource policeSound;
 
-    public Transform target;
-    public Vector3 direction;
-
-
-    public float speed = 3;
-    public float rotSpeed = 5;
-    public AudioSource policesound;
-
-    public void Update()
+    private void Start()
     {
-        MoveToTarget();
+        policeSound = this.GetComponent<AudioSource>();
+        policeSound.Play();
+
+        Hashtable ht = new Hashtable();
+        ht.Add("time",5.0f);
+        ht.Add("path",iTweenPath.GetPath("Step"));
+        ht.Add("easetype",iTween.EaseType.linear);
+        ht.Add("oncomplete","StepBack");
+        ht.Add("oncompletetarget",this.gameObject);
+
+        iTween.MoveTo(this.gameObject, ht);
     }
-    public void MoveToTarget()
+    void StepBack()
     {
-        GameObject policecall = GameObject.FindWithTag("PoliceCome");
-        target = policecall.transform;
-
-
-        direction = (target.position - transform.position);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotSpeed * Time.deltaTime);
-
-        GetComponent<CharacterController>().SimpleMove(direction.normalized * speed);
-
-        //오브젝트가 지역에 도착하고 3초 후에 다시 원래 자리로 돌아간다
+        
+        Invoke("StepBackStart",6f);  // 지켜보는 시간 조정
+        
     }
+    void StepBackStart()
+    {
+        policeSound.Play();
+        Hashtable ht2 = new Hashtable();
+        ht2.Add("time",5.0f);
+        ht2.Add("path",iTweenPath.GetPath("StepBack"));
+        ht2.Add("easetype",iTween.EaseType.linear);
 
+        iTween.MoveTo(this.gameObject, ht2);
+    }
 }
