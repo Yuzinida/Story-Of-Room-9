@@ -5,7 +5,7 @@ using Valve.VR;
 
 public class Knock : MonoBehaviour
 {
-    AudioSource knockWall,knockRoomSound,knockRoomSound2,arirangAndStop,stopSinging,reStartSing,violence,blackOut;
+    AudioSource knockWall,knockRoomSound,knockRoomSound2,arirangAndStop,stopSinging,reStartSing,violence,blackOut,playerTo;
     bool knockRoom = false;
     int count = 0;
     private void Awake()
@@ -18,6 +18,7 @@ public class Knock : MonoBehaviour
         reStartSing = GameObject.Find("ReStartSing").GetComponent<AudioSource>();
         violence = GameObject.Find("Violence").GetComponent<AudioSource>();
         blackOut = GameObject.Find("BlackOut").GetComponent<AudioSource>();
+        playerTo = GameObject.Find("PlayerTo").GetComponent<AudioSource>();
             
     }
     //테스트
@@ -48,6 +49,9 @@ public class Knock : MonoBehaviour
     }
     public void NextScene()
     {
+        //0714 ㅂㅏㅂㄱㅡㄹㅡㅅ ㅅㅣㅈㅏㄱㅃㅏㄹㄹㅣ! ㅉㅗㄱㅈㅣ
+
+
         knockRoom = true;
         Invoke("KnockRoom",15f);
         Invoke("KnockRoom",20f);
@@ -70,6 +74,8 @@ public class Knock : MonoBehaviour
     // // 발걸음 멀어지는 코드
     void Recede()
     {
+        GameObject.Find("StopSinging").GetComponent<AudioReverbFilter>().enabled = true;
+
         Hashtable ht = new Hashtable();
         ht.Add("time",5.0f);
         ht.Add("path",iTweenPath.GetPath("Walk"));
@@ -86,7 +92,8 @@ public class Knock : MonoBehaviour
     void Violence()
     {
         violence.Play();
-        Invoke("BlackOut",15f);
+        Invoke("PlayerTo",10f);
+        Invoke("BlackOut",14f);
         Hashtable ht2 = new Hashtable();
         ht2.Add("time",15f);
         ht2.Add("path",iTweenPath.GetPath("violence"));
@@ -94,6 +101,16 @@ public class Knock : MonoBehaviour
 
         iTween.MoveTo(violence.gameObject, ht2);
     }    
+    void PlayerTo()
+    {
+        playerTo.Play();
+        Hashtable ht3 = new Hashtable();
+        ht3.Add("time",5f);
+        ht3.Add("path",iTweenPath.GetPath("PlayerTo"));
+        ht3.Add("easetype",iTween.EaseType.linear);
+
+        iTween.MoveTo(playerTo.gameObject, ht3);
+    }
     void BlackOut()
     {
         blackOut.Play();
@@ -106,6 +123,9 @@ public class Knock : MonoBehaviour
          SteamVR_Fade.Start(Color.clear, 0f);
          //set and start fade to
          SteamVR_Fade.Start(Color.black, 1f);
+
+         //다음씬으로!
+
     }
     
 

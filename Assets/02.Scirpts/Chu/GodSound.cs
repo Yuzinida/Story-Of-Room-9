@@ -11,11 +11,14 @@ public class GodSound : MonoBehaviour
     int countEat = 0;
    public AudioClip eat;
    public AudioClip walk;
+   Light lt;
+   Light slt;
    private void Awake()
    {
        godSound = this.GetComponent<AudioSource>();
-       // Test
-       GodWalk();
+       lt = GameObject.Find("Point Light").GetComponent<Light>();
+       slt = GameObject.Find("Spot Light").GetComponent<Light>();
+       
    }
    public void GodWalk()
    {
@@ -24,6 +27,9 @@ public class GodSound : MonoBehaviour
             godSound.clip = walk;
             godSound.Play();
 
+            lt.intensity = 0.2f;             
+            slt.intensity = 10f;
+
             Hashtable ht = new Hashtable();
             ht.Add("time",20f);
             ht.Add("path",iTweenPath.GetPath("GodWalk"));
@@ -31,17 +37,41 @@ public class GodSound : MonoBehaviour
             ht.Add("delay",3f);
 
             iTween.MoveTo(this.gameObject, ht);
+
+            Invoke("OutLight",20f);
+
+            //ㅅㅡㅌㅗㄹㅣ ㅅㅣㅈㅏㄱ
+            Invoke("StartStory",30f);
        }
+       
         
    }
    public void GodEat()
    {
        countEat+=1;
-       if(countWalk<=1){
-           godSound.clip = eat;
+       if(countEat<=1){
+
+            lt.intensity = 0.2f; 
+            slt.intensity = 30f;
+
+            godSound.clip = eat;
             godSound.Play();
+
+            Invoke("OutLight",15f);
+            
        }
         
+   }
+   void OutLight()
+   {
+       lt.intensity = 1.26f;
+       slt.intensity = 1274f;
+   }
+
+   void StartStory()
+   {
+       GameObject.Find("UIController").SetActive(false);
+       GameObject.Find("KnockWall").GetComponent<Knock>().NextScene();
    }
 
 }

@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 public class PoliceMove : MonoBehaviour
 {
     AudioSource policeSound;
+    GameObject godWalk;
 
     private void Start()
     {
@@ -20,6 +21,8 @@ public class PoliceMove : MonoBehaviour
         ht.Add("oncompletetarget",this.gameObject);
 
         iTween.MoveTo(this.gameObject, ht);
+
+        godWalk = GameObject.Find("UIController").transform.GetChild(0).gameObject;
     }
     void StepBack()
     {
@@ -34,7 +37,16 @@ public class PoliceMove : MonoBehaviour
         ht2.Add("time",5.0f);
         ht2.Add("path",iTweenPath.GetPath("StepBack"));
         ht2.Add("easetype",iTween.EaseType.linear);
+        ht2.Add("oncomplete","ActWalk");
+        ht2.Add("oncompletetarget",this.gameObject);
+
 
         iTween.MoveTo(this.gameObject, ht2);
+    }
+    void ActWalk()
+    {
+        godWalk.SetActive(true);
+        // 옆방소리들리기 시작! 사부작사부작 걷는소리
+        
     }
 }
