@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+// using Valve.VR;
 
 [System.Serializable]
 
 // 대사와 이미지를 가져온다.
 public class Dialogue
 {
+
     [TextArea] // 한 줄이 아닌 여러 줄 쓸 수 있게 만든다.
     public string dialogue; // text를 가져온다.
     //public Sprite cg; // 이미지 가져오기 (오디오 가져올 수도 있음)
