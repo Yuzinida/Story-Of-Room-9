@@ -50,7 +50,7 @@ public class DRoom_Dialogue1 : MonoBehaviour
     public void OnClickPlayerUI_1()
     {
         PlayerUI_1.SetActive(false);
-        //YouUI_1.SetActive(true);
+        YouUI_1.SetActive(true);
         You_Sound1.Play();
         Debug.Log("You_Sound1.Play()");
         Invoke("PlayerUI_2_func", 15.0f);
@@ -86,7 +86,7 @@ public class DRoom_Dialogue1 : MonoBehaviour
     void PlayerUI_2_func()
     {
         PlayerUI_2.SetActive(true);
-        //YouUI_1.SetActive(false);
+        YouUI_1.SetActive(false);
     }
     void PlayerUI_3_func()
     {
