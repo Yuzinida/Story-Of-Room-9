@@ -121,7 +121,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!43 &196017769
+--- !u!43 &64841239
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 216091851}
   - component: {fileID: 216091850}
   - component: {fileID: 216091849}
+  - component: {fileID: 216091853}
   m_Layer: 0
   m_Name: FloorB
   m_TagString: Untagged
@@ -335,7 +336,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c11f594e8e5ec6a4c992c81abbd9122b, type: 2}
+  - {fileID: 2100000, guid: ada7ec9c713b4f74b88bb6d160948826, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -378,7 +379,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &677889259
+--- !u!114 &216091853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216091848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7758edb576a8fc44bb770b5ee4317ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: ada7ec9c713b4f74b88bb6d160948826, type: 2}
+  scrollSpeed: -0.2
+--- !u!21 &263768446
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -422,6 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 997132351}
   - component: {fileID: 997132350}
+  - component: {fileID: 997132352}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -443,7 +459,7 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 10.9
   m_Range: 13.35
-  m_SpotAngle: 30
+  m_SpotAngle: 19.4
   m_InnerSpotAngle: 4.8
   m_CookieSize: 10
   m_Shadows:
@@ -504,6 +520,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!111 &997132352
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997132349}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: e26d029871af9ec4094a2b10d3a628ac, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: e26d029871af9ec4094a2b10d3a628ac, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &1028467480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -562,26 +594,26 @@ PrefabInstance:
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 677889259}
+      objectReference: {fileID: 263768446}
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 196017769}
+      objectReference: {fileID: 64841239}
     - target: {fileID: 1000014254142504, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4000013889601590, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.57386225
+      value: 0.3545358
       objectReference: {fileID: 0}
     - target: {fileID: 4000013889601590, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.81895185
+      value: 0.9350425
       objectReference: {fileID: 0}
     - target: {fileID: 4000013889601590, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 70.04
+      value: 41.53
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
@@ -780,6 +812,20 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1028467499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028467483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c23e006dd06cad4e940ed670f053b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {fileID: 1028467487}
+  dof: 6.13
 --- !u!1 &1376659959
 GameObject:
   m_ObjectHideFlags: 0
