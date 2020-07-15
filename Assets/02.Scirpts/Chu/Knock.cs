@@ -11,6 +11,7 @@ public class Knock : MonoBehaviour
     int count = 0;
     private void Awake()
     {
+        
         knockWall = this.GetComponent<AudioSource>();
         knockRoomSound = GameObject.Find("KnockRoom").GetComponent<AudioSource>();
         knockRoomSound2 = GameObject.Find("KnockRoom2").GetComponent<AudioSource>();
@@ -20,15 +21,11 @@ public class Knock : MonoBehaviour
         violence = GameObject.Find("Violence").GetComponent<AudioSource>();
         blackOut = GameObject.Find("BlackOut").GetComponent<AudioSource>();
         playerTo = GameObject.Find("PlayerTo").GetComponent<AudioSource>();
-            
+
+        
     }
-    //테스트
-        private void Start()
-        {
-            // NextScene();
-            //PlayerTo();
-        }
-    //
+
+    
 
     //노크 이벤트
     private void OnTriggerEnter(Collider other)
