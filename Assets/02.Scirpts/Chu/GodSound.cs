@@ -18,17 +18,38 @@ public class GodSound : MonoBehaviour
    AudioSource doorMOpen;
    private void Awake()
    {
+
+        //set start color
+        SteamVR_Fade.Start(Color.clear, 0f);
+        //set and start fade to
+        SteamVR_Fade.Start(Color.black, 0.1f);
+
+       
        godSound = this.GetComponent<AudioSource>();
        lt = GameObject.Find("Point Light").GetComponent<Light>();
        slt = GameObject.Find("Spot Light").GetComponent<Light>();
        doorMOpen = GameObject.Find("door.m").GetComponent<AudioSource>();
+
+       StartCoroutine("RoomFadeIn");
        
    }
-   private void Start()
-   {
-       //test
-       //StartStory();
-   }
+
+   //시작 페이드인
+    IEnumerator RoomFadeIn()
+    {
+        lt.intensity = 1.26f;
+        slt.intensity = 1274f;
+
+        yield return new WaitForSeconds(2f);
+
+        //set start color
+        SteamVR_Fade.Start(Color.black, 0f);
+        //set and start fade to
+        SteamVR_Fade.Start(Color.clear, 3f);
+
+        
+
+    }
    public void GodWalk()
    {
        countWalk+=1;
