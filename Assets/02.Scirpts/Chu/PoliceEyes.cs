@@ -7,10 +7,12 @@ public class PoliceEyes : MonoBehaviour
     AudioSource obSound;
     public AudioClip downSound;
     public AudioClip upSound;
+    GameObject jp;
     private void Awake()
     {
         obSound = this.GetComponent<AudioSource>();
         obSound.clip = downSound;
+        jp = GameObject.Find("JP");
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +22,7 @@ public class PoliceEyes : MonoBehaviour
             obSound.Play();
         }
     }
+    
     void Down()
     {
         Hashtable ht = new Hashtable();
@@ -28,6 +31,13 @@ public class PoliceEyes : MonoBehaviour
         ht.Add("easetype",iTween.EaseType.linear);
 
         iTween.MoveTo(this.gameObject, ht);
+
+        Hashtable ht3 = new Hashtable();
+        ht3.Add("time",1f);
+        ht3.Add("path",iTweenPath.GetPath("JPEyes"));
+        ht3.Add("easetype",iTween.EaseType.linear);
+
+        iTween.MoveTo(jp.gameObject, ht3);
 
         Invoke("Up",3f);  //지켜보는 시간 조정
     }
