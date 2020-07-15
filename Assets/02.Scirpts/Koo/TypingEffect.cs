@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TypingEffect : MonoBehaviour
 {
     public Text tx;
-    private string m_text = "으아아아악";
+    private string m_text = "관순 : ... 저는 의무라고만 여겼어요. \n 나라를 되찾으려는 당연한 의무...";
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class TypingEffect : MonoBehaviour
         {
             tx.text = m_text.Substring(0, i);
 
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

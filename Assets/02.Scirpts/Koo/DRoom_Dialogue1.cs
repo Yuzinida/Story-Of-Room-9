@@ -2,14 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using UnityEngine.UI;
 
 public class DRoom_Dialogue1 : MonoBehaviour
 {
     public GameObject PlayerUI_1, PlayerUI_2, PlayerUI_3, PlayerUI_4;
-    public GameObject YouUI_1, YouUI_2, YouUI_3, YouUI_4;
+    public GameObject YouUI;
     public AudioSource You_Sound1, You_Sound2, You_Sound3, You_Sound4;
-    bool knockRoom = false;
-    int count = 0;
+
+    // public Text Text_You1_1;
+    // public Text Text_You2_1;
+    // public Text Text_You2_2;
+    // public Text Text_You2_3;
+    // public Text Text_You3_1;
+    // public Text Text_You3_2;
+    // public Text Text_You4_1;
+    public Text Text_You;
+
+
     private void Awake()
     {
         // Player UI 입력
@@ -18,11 +28,30 @@ public class DRoom_Dialogue1 : MonoBehaviour
         PlayerUI_3 = GameObject.Find("Canvas_PlayerUI_3");
         PlayerUI_4 = GameObject.Find("Canvas_PlayerUI_4");
 
-        // You UI 입력
-        YouUI_1 = GameObject.Find("Canvas_YouUI_1");
-        YouUI_2 = GameObject.Find("Canvas_YouUI_2");
-        YouUI_3 = GameObject.Find("Canvas_YouUI_3");
-        YouUI_4 = GameObject.Find("Canvas_YouUI_4");
+        // You UI와 판넬 입력
+        YouUI = GameObject.Find("Canvas_YouUI");
+        //YouUI_2 = GameObject.Find("Canvas_YouUI_2");
+        //YouUI_3 = GameObject.Find("Canvas_YouUI_3");
+        //YouUI_4 = GameObject.Find("Canvas_YouUI_4");
+
+
+
+        // // You Text 입력
+        // Text_You1_1.GetComponent<Text>().text 
+        //             = "관순 : ... 저는 의무라고만 여겼어요. \n 나라를 되찾으려는 당연한 의무...";
+        // Text_You2_1.GetComponent<Text>().text 
+        //             = "관순 : 나란 년은 정말 이상속에서 잘난 체만 하면서 산 거 같아요. ";
+        // Text_You2_2.GetComponent<Text>().text 
+        //             = "관순 : 진짜 만숙이 어머니 말 대로 내가 경성에서 만세소식을 전하러 내려오지 않았다면.. ";
+        // Text_You2_3.GetComponent<Text>().text 
+        //             = "관순 : 우리 부모님 고향사람들까지 돌아가시지 않았을지도 모르잖아요.  ";
+        // Text_You3_1.GetComponent<Text>().text 
+        //             = "관순 : 그래도 정당한일을 하니까 하나님이 도와 주실 줄 알았어요.";
+        // Text_You3_2.GetComponent<Text>().text 
+        //             = "관순 : 언니들에 비하면 나는 만세부를 자격도 없는데..";
+        // Text_You4_1.GetComponent<Text>().text 
+        //             = "관순 : 금년이 윤달이 아니라면 딱 3일 남은 거 같아요.";
+
 
 
         // 소리 입력
@@ -39,10 +68,7 @@ public class DRoom_Dialogue1 : MonoBehaviour
         PlayerUI_3.SetActive(false);
         PlayerUI_4.SetActive(false);
 
-        YouUI_1.SetActive(false);
-        YouUI_2.SetActive(false);
-        YouUI_3.SetActive(false);
-        YouUI_4.SetActive(false);
+        YouUI.SetActive(false);
 
     }
 
@@ -50,7 +76,10 @@ public class DRoom_Dialogue1 : MonoBehaviour
     public void OnClickPlayerUI_1()
     {
         PlayerUI_1.SetActive(false);
-        YouUI_1.SetActive(true);
+        YouUI.SetActive(true);
+        //Text_You.text = "관순 : ... 저는 의무라고만 여겼어요. \n 나라를 되찾으려는 당연한 의무...";
+        //YouUI.GetComponent<Text>().text = "관순 : ... 저는 의무라고만 여겼어요. \n 나라를 되찾으려는 당연한 의무...";
+
         You_Sound1.Play();
         Debug.Log("You_Sound1.Play()");
         Invoke("PlayerUI_2_func", 15.0f);
@@ -74,7 +103,7 @@ public class DRoom_Dialogue1 : MonoBehaviour
     }
 
 
-        public void OnClickPlayerUI_4()
+    public void OnClickPlayerUI_4()
     {
         PlayerUI_4.SetActive(false);
         //YouUI_4.SetActive(true);
@@ -86,7 +115,7 @@ public class DRoom_Dialogue1 : MonoBehaviour
     void PlayerUI_2_func()
     {
         PlayerUI_2.SetActive(true);
-        YouUI_1.SetActive(false);
+        YouUI.SetActive(false);
     }
     void PlayerUI_3_func()
     {
