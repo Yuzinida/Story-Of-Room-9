@@ -21,8 +21,6 @@ public class Knock : MonoBehaviour
         violence = GameObject.Find("Violence").GetComponent<AudioSource>();
         blackOut = GameObject.Find("BlackOut").GetComponent<AudioSource>();
         playerTo = GameObject.Find("PlayerTo").GetComponent<AudioSource>();
-
-        
     }
 
     
@@ -64,7 +62,7 @@ public class Knock : MonoBehaviour
         stopSinging.Play();
         knockRoom = false;
         Invoke("Recede",8f);
-        Invoke("ReStartSing",13.5f);
+        Invoke("ReStartSing",11f);
         
     }
     // // 발걸음 멀어지는 코드
@@ -73,7 +71,7 @@ public class Knock : MonoBehaviour
         GameObject.Find("StopSinging").GetComponent<AudioReverbFilter>().enabled = true;
 
         Hashtable ht = new Hashtable();
-        ht.Add("time",5.0f);
+        ht.Add("time",8.0f);
         ht.Add("path",iTweenPath.GetPath("Walk"));
         ht.Add("easetype",iTween.EaseType.linear);
 
@@ -101,7 +99,7 @@ public class Knock : MonoBehaviour
     {
         playerTo.Play();
         Hashtable ht3 = new Hashtable();
-        ht3.Add("time",5f);
+        ht3.Add("time",4f);
         ht3.Add("path",iTweenPath.GetPath("PlayerTo"));
         ht3.Add("easetype",iTween.EaseType.linear);
 
