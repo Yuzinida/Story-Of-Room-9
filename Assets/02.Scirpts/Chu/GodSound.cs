@@ -11,14 +11,23 @@ public class GodSound : MonoBehaviour
     int countEat = 0;
    public AudioClip eat;
    public AudioClip walk;
+   GameObject bowl;
    Light lt;
    Light slt;
+   Animator OpenM;
+   AudioSource doorMOpen;
    private void Awake()
    {
        godSound = this.GetComponent<AudioSource>();
        lt = GameObject.Find("Point Light").GetComponent<Light>();
        slt = GameObject.Find("Spot Light").GetComponent<Light>();
+       doorMOpen = GameObject.Find("door.m").GetComponent<AudioSource>();
        
+   }
+   private void Start()
+   {
+       //test
+       //StartStory();
    }
    public void GodWalk()
    {
@@ -41,7 +50,7 @@ public class GodSound : MonoBehaviour
             Invoke("OutLight",20f);
 
             //ㅅㅡㅌㅗㄹㅣ ㅅㅣㅈㅏㄱ
-            Invoke("StartStory",30f);
+            Invoke("StartStory",25f);
        }
        
         
@@ -70,8 +79,13 @@ public class GodSound : MonoBehaviour
 
    void StartStory()
    {
-       GameObject.Find("UIController").SetActive(false);
-       GameObject.Find("KnockWall").GetComponent<Knock>().NextScene();
+        GameObject.Find("UIController").SetActive(false);
+        GameObject.Find("KnockWall").GetComponent<Knock>().NextScene();
+        bowl = GameObject.Find("RB_W").transform.GetChild(0).gameObject;
+        bowl.SetActive(true);
+        OpenM = GameObject.Find("door.m").GetComponent<Animator>();
+        OpenM.SetTrigger("Open");
+        doorMOpen.Play();
    }
 
 }
