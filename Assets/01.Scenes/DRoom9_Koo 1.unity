@@ -2201,7 +2201,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: SSSSSSSSSSSSSS
 --- !u!222 &769994560
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3345,7 +3345,7 @@ MonoBehaviour:
   You_Sound2: {fileID: 0}
   You_Sound3: {fileID: 0}
   You_Sound4: {fileID: 0}
-  Text_You: {fileID: 0}
+  Text_You: {fileID: 769994559}
 --- !u!1 &1028229222
 GameObject:
   m_ObjectHideFlags: 0
@@ -4250,7 +4250,6 @@ GameObject:
   - component: {fileID: 1589990379}
   - component: {fileID: 1589990378}
   - component: {fileID: 1589990377}
-  - component: {fileID: 1589990376}
   m_Layer: 0
   m_Name: Canvas_YouUI
   m_TagString: Untagged
@@ -4278,28 +4277,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.382, y: 0.36}
   m_SizeDelta: {x: 2, y: 1.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1589990376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589990374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab3cbeae0d6b7bb4887b7256e3c7a9df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerUI_1: {fileID: 0}
-  PlayerUI_2: {fileID: 0}
-  PlayerUI_3: {fileID: 0}
-  PlayerUI_4: {fileID: 0}
-  YouUI: {fileID: 0}
-  You_Sound1: {fileID: 0}
-  You_Sound2: {fileID: 0}
-  You_Sound3: {fileID: 0}
-  You_Sound4: {fileID: 0}
-  Text_You: {fileID: 0}
 --- !u!114 &1589990377
 MonoBehaviour:
   m_ObjectHideFlags: 0
