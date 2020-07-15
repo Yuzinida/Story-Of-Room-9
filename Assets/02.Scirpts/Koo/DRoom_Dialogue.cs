@@ -4,7 +4,7 @@ using UnityEngine;
 using Valve.VR;
 using UnityEngine.UI;
 
-public class DRoom_Dialogue1 : MonoBehaviour
+public class DRoom_Dialogue : MonoBehaviour
 {
     public GameObject PlayerUI_1, PlayerUI_2, PlayerUI_3, PlayerUI_4;
     public GameObject YouUI;
@@ -17,6 +17,7 @@ public class DRoom_Dialogue1 : MonoBehaviour
     // public Text Text_You3_1;
     // public Text Text_You3_2;
     // public Text Text_You4_1;
+    
     public Text Text_You;
 
 
@@ -30,12 +31,6 @@ public class DRoom_Dialogue1 : MonoBehaviour
 
         // You UI와 판넬 입력
         YouUI = GameObject.Find("Canvas_YouUI");
-        //YouUI_2 = GameObject.Find("Canvas_YouUI_2");
-        //YouUI_3 = GameObject.Find("Canvas_YouUI_3");
-        //YouUI_4 = GameObject.Find("Canvas_YouUI_4");
-
-        //Text_You=YouUI.GetComponent<Text>();
-
 
 
         // // You Text 입력
@@ -129,6 +124,7 @@ public class DRoom_Dialogue1 : MonoBehaviour
         You_Sound4.Play();
         Debug.Log("You_Sound4.Play()");
         // 9.0f 이후 자막 없어짐
+        Invoke("YouUIFalse_func", 9.0f);
     }
 
 
@@ -137,14 +133,19 @@ public class DRoom_Dialogue1 : MonoBehaviour
         Text_You.text = "관순 : 진짜 만숙이 어머니 말 대로 내가 경성에서 만세소식을 전하러 내려오지 않았다면..";
     }
 
-        void Text_You2_3_func()
+    void Text_You2_3_func()
     {
         Text_You.text = "관순 : 우리 부모님 고향사람들까지 돌아가시지 않았을지도 모르잖아요.";
     }
 
-        void Text_You3_2_func()
+    void Text_You3_2_func()
     {
         Text_You.text = "관순 : 언니들에 비하면 나는 만세부를 자격도 없는데..";
+    }
+
+    void YouUIFalse_func()
+    {
+        YouUI.SetActive(false);
     }
 
 
