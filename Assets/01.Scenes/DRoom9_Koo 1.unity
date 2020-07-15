@@ -2201,7 +2201,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SSSSSSSSSSSSSS
+  m_Text: .
 --- !u!222 &769994560
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3056,13 +3056,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5188679, g: 0.2693363, b: 0.08566214, a: 1}
+  m_Color: {r: 0.5188679, g: 0.2693363, b: 0.08566214, a: 0.078431375}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 82a05787c640f0d4aaa795aaac431ed0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3333,7 +3333,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1018396887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab3cbeae0d6b7bb4887b7256e3c7a9df, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ecda2769d001284d8fd5a8fbe0c1b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerUI_1: {fileID: 0}
@@ -3346,6 +3346,7 @@ MonoBehaviour:
   You_Sound3: {fileID: 0}
   You_Sound4: {fileID: 0}
   Text_You: {fileID: 769994559}
+  tx: {fileID: 0}
 --- !u!1 &1028229222
 GameObject:
   m_ObjectHideFlags: 0
