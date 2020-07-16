@@ -8,7 +8,7 @@ public class AdviserSound : MonoBehaviour
     void Start()
     {
         Hashtable ht = new Hashtable();
-        ht.Add("time",30f);
+        ht.Add("time",25f);
         ht.Add("path",iTweenPath.GetPath("Adviser"));
         ht.Add("easetype",iTween.EaseType.linear);
 
@@ -22,7 +22,7 @@ public class AdviserSound : MonoBehaviour
 
     IEnumerator DRoomSound()
     {
-        yield return new WaitForSeconds(31f);
+        yield return new WaitForSeconds(25f);
 
         dRoom.Play();
     }

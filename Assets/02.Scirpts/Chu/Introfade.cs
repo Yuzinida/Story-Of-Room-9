@@ -5,30 +5,30 @@ using Valve.VR;
 
 public class Introfade : MonoBehaviour
 {
-    Light introLight;
+    //Light introLight;
     AudioSource openDoor,closeDoor;
     private void Awake()
     {
-        introLight = GameObject.Find("Spot Light").GetComponent<Light>();
+        //introLight = GameObject.Find("Spot Light").GetComponent<Light>();
         openDoor = GameObject.Find("OpenDoor").GetComponent<AudioSource>();
         closeDoor = GameObject.Find("CloseDoor").GetComponent<AudioSource>();
 
-        StartCoroutine("LightOn");
+        //StartCoroutine("LightOn");
         StartCoroutine("LightOff");
     }
 
-    IEnumerator LightOn()
-    {
-        yield return new WaitForSeconds(3.5f);
+    // IEnumerator LightOn()
+    // {
+    //     yield return new WaitForSeconds(3.5f);
 
-        introLight.enabled=true;
-    }
+    //     introLight.enabled=true;
+    // }
     IEnumerator LightOff()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(7f);
         openDoor.Play();
         closeDoor.Play();
-        introLight.enabled=false;
+        //introLight.enabled=false;
     }
     
 }
