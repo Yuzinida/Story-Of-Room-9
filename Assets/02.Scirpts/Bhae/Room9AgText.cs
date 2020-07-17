@@ -18,11 +18,11 @@ public class Room9AgText : MonoBehaviour
 
     void Start()
     {
-     Invoke("can1",1f);
-     Invoke("can2",1f);
-     Invoke("can3",1f);
-     Invoke("can4",1f);
-     Invoke("can5",1f);
+     Invoke("can1",0.5f);
+     Invoke("can2",8.5f);
+     Invoke("can3",14f);
+     Invoke("can4",19.5f);
+     Invoke("can5",26.5f);
 
     }
    public void can1()
@@ -55,10 +55,6 @@ public class Room9AgText : MonoBehaviour
         StartCoroutine(DoFade(canvGroup, canvGroup.alpha, tFaded ? 1 : 0));
         //tFaded = !tFaded;
     }
-
-
-
-
     
     public IEnumerator DoFade(CanvasGroup canvasGroup, float start, float end)
     {
