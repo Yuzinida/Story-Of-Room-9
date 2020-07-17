@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AdviserSound : MonoBehaviour
 {
-    AudioSource dRoom;
+    AudioSource dRoom,rainStart;
     void Start()
     {
         Hashtable ht = new Hashtable();
@@ -15,6 +16,7 @@ public class AdviserSound : MonoBehaviour
         iTween.MoveTo(this.gameObject, ht);
 
         dRoom = GameObject.Find("DRoom").GetComponent<AudioSource>();
+        rainStart = GameObject.Find("RainStart").GetComponent<AudioSource>();
 
         StartCoroutine("DRoomSound");
 
@@ -25,6 +27,15 @@ public class AdviserSound : MonoBehaviour
         yield return new WaitForSeconds(25f);
 
         dRoom.Play();
+
+        yield return new WaitForSeconds(10f);
+
+        rainStart.Play();   
+
+        yield return new WaitForSeconds(6f);
+
+        SceneManager.LoadScene(5);
+
     }
 
 }

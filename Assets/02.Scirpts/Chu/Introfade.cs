@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using UnityEngine.SceneManagement;
 
 public class Introfade : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Introfade : MonoBehaviour
 
         //StartCoroutine("LightOn");
         StartCoroutine("LightOff");
+        StartCoroutine("NextSceneRoom");
     }
 
     // IEnumerator LightOn()
@@ -29,6 +31,11 @@ public class Introfade : MonoBehaviour
         openDoor.Play();
         closeDoor.Play();
         //introLight.enabled=false;
+    }
+    IEnumerator NextSceneRoom()
+    {
+        yield return new WaitForSeconds(12f);
+        SceneManager.LoadScene(3);
     }
     
 }
