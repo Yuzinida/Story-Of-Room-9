@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using UnityEngine.SceneManagement;
 
 public class Knock : MonoBehaviour
 {
@@ -23,7 +24,6 @@ public class Knock : MonoBehaviour
         playerTo = GameObject.Find("PlayerTo").GetComponent<AudioSource>();
     }
 
-    
 
     //노크 이벤트
     private void OnTriggerEnter(Collider other)
@@ -119,9 +119,15 @@ public class Knock : MonoBehaviour
          SteamVR_Fade.Start(Color.black, 1f);
 
          //다음씬으로!
+         StartCoroutine("NextDRoom");
 
     }
     
+    IEnumerator NextDRoom()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(4);
+    }
 
 
 
