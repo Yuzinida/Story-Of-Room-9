@@ -105,19 +105,19 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Vector2 TouchpadTouch
+        public virtual SteamVR_Action_Boolean TrackpadTouch
         {
             get
             {
-                return SteamVR_Actions.default_TouchpadTouch;
+                return SteamVR_Actions.default_TrackpadTouch;
             }
         }
         
-        public virtual SteamVR_Action_Vector2 TouchpadPosition
+        public virtual SteamVR_Action_Vector2 TrackpadPosition
         {
             get
             {
-                return SteamVR_Actions.default_TouchpadPosition;
+                return SteamVR_Actions.default_TrackpadPosition;
             }
         }
         
