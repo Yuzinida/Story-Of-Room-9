@@ -7,6 +7,12 @@ public class GameStart : MonoBehaviour
 {
    public void StartGame()
    {
-       SceneManager.LoadScene(1);
+       StartCoroutine("Delay");
+       
+   }
+   IEnumerator Delay()
+   {
+       yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(1);
    }
 }

@@ -10,20 +10,16 @@ public class PutYourHandsUp : MonoBehaviour
 
     void Start()
     {
-
-     Invoke("canvers",30f);
+        StartCoroutine("canvers");  
     }
 
-    void canvers()
+    IEnumerator canvers()
     {
-canvas1.SetActive (false);
-canvas2.SetActive (true);
+        yield return new WaitForSeconds(33f);
+        canvas1.SetActive (false);
+        canvas2.SetActive (true);
+        GameObject.Find("Canvas2").GetComponent<UIFADE>().Fadem();
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -16,8 +16,8 @@ public class Drow : MonoBehaviour
 
     void canvers()
     {
-canvas1.SetActive (false);
-canvas2.SetActive (true);
+        canvas1.SetActive (false);
+        canvas2.SetActive (true);
 
     }
 
