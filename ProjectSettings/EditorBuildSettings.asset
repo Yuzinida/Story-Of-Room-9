@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/01.Scenes/03_4.Move_Chu.unity
     guid: 31e9c70570f0bdc408e1537e741c6191
   - enabled: 1
-    path: Assets/01.Scenes/DRoom9_Koo.unity
-    guid: f1ccc57faf887dc4a9813671693abc08
+    path: Assets/01.Scenes/04.DRoom_Chu.unity
+    guid: 34dcfa973a9032346a6c1bd756b41884
   m_configObjects: {}
