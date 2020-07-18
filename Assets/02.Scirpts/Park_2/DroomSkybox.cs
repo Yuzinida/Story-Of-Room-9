@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class DroomSkybox : MonoBehaviour
 {
-    public float Skyboxspeed;
+    public float Skyboxspeed = 2;
 
 
-
-    // Update is called once per frame
     void Update()
     {
-        RenderSettings.skybox.SetFloat ("_Rotation", Time.time * Skyboxspeed);
-        RenderSettings.skybox.SetFloat("_Exposure", Mathf.Sin(Time.time * Mathf.Deg2Rad * 100) + 1);
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * Skyboxspeed);
+
+        //관순과의 대화가 끝난다면
+        // if (){
+
+        //LightOnOff();
+        // }
+
+
+    }
+
+    void LightOnOff()
+    {
+        RenderSettings.skybox.SetFloat("_Exposure", Mathf.Sin(Time.time * Mathf.Deg2Rad * 70) + 1);
     }
 }
