@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Valve.VR;
 
 public class Room9AgText : MonoBehaviour
 {
@@ -9,21 +10,47 @@ public class Room9AgText : MonoBehaviour
     public float duration = 0.4f;
 
 
-    public GameObject canvas1;
-    public GameObject canvas2;
-    public GameObject canvas3;
-    public GameObject canvas4;
-    public GameObject canvas5;
+    public GameObject canvas1,canvas2,canvas3,canvas4,canvas5;
 
+    
 
     void Start()
     {
-     Invoke("can1",0.5f);
-     Invoke("can2",8.5f);
-     Invoke("can3",14f);
-     Invoke("can4",19.5f);
-     Invoke("can5",26.5f);
+        //set start color
+        SteamVR_Fade.Start(Color.white, 0f);
+        //set and start fade to
+        SteamVR_Fade.Start(Color.white, 0.1f);
+        //StartCoroutine("ShowUI");
+        StartCoroutine("WhiteIn");
 
+    }
+
+    IEnumerator WhiteIn()
+    {
+        
+
+        yield return new WaitForSeconds(3f);
+        //set start color
+        SteamVR_Fade.Start(Color.white, 0f);
+        //set and start fade to
+        SteamVR_Fade.Start(new Color(1,1,1,0.01f), 3f);
+
+    }
+
+    
+
+    IEnumerator ShowUI()
+    {
+        yield return new WaitForSeconds(0.5f);
+        can1();
+        yield return new WaitForSeconds(8f);
+        can2();
+        yield return new WaitForSeconds(5.5f);
+        can3();
+        yield return new WaitForSeconds(5.5f);
+        can4();
+        yield return new WaitForSeconds(7f);
+        can4();
     }
    public void can1()
     {

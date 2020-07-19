@@ -67,7 +67,7 @@ public class DRoom_mgr : MonoBehaviour
         //set and start fade to
         SteamVR_Fade.Start(Color.white, 6f);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(8f);
         SceneManager.LoadScene(6);
     }
 }
