@@ -5,6 +5,7 @@ using UnityEngine;
 public class AddForce : MonoBehaviour
 {
     UIFADE showLetter;
+    int count = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,12 @@ public class AddForce : MonoBehaviour
         if(other.gameObject.CompareTag("Hand"))
         {
             showLetter.Fadem();
+            count += 1;
+            if(count <= 1 )
+            {
+                GameObject.Find("KnockWall").GetComponent<Knock>().NextScene();
+            }
+            
         }
     }
     private void OnTriggerExit(Collider other)

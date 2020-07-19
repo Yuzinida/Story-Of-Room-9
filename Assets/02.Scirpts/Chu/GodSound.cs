@@ -16,10 +16,8 @@ public class GodSound : MonoBehaviour
    Light slt;
    Animator OpenM;
    AudioSource doorMOpen;
-   private void Awake()
+   private void Start()
    {
-       
-
         //set start color
         SteamVR_Fade.Start(Color.clear, 0f);
         //set and start fade to
@@ -39,8 +37,6 @@ public class GodSound : MonoBehaviour
    //시작 페이드인
     IEnumerator RoomFadeIn()
     {
-        lt.intensity = 1.26f;
-        slt.intensity = 1274f;
 
         yield return new WaitForSeconds(2f);
 
@@ -103,7 +99,6 @@ public class GodSound : MonoBehaviour
    void StartStory()
    {
         GameObject.Find("UIController").SetActive(false);
-        GameObject.Find("KnockWall").GetComponent<Knock>().NextScene();
         bowl.SetActive(true);
         OpenM = GameObject.Find("door.m").GetComponent<Animator>();
         OpenM.SetTrigger("Open");

@@ -9,11 +9,16 @@ public class MoveFade : MonoBehaviour
     AudioSource dRoomSound;
     bool isLightOff = false;
     bool isSoundOff = false;
+    GameObject left,right,ad;
     private void Awake()
     {
         dRoomLight = GameObject.Find("DSpot Light").GetComponent<Light>();
         dRoomSound = GameObject.Find("BackgourndSound").GetComponent<AudioSource>();
+        left = this.transform.GetChild(0).gameObject;
+        right = this.transform.GetChild(1).gameObject;
+        ad = GameObject.Find("StartAd").transform.GetChild(0).gameObject;
 
+        StartCoroutine("StartF");
         StartCoroutine("LightOff");
         StartCoroutine("SoundOff");
     }
@@ -37,15 +42,23 @@ public class MoveFade : MonoBehaviour
             }
         }
     }
+
+    IEnumerator StartF()
+    {
+        yield return new WaitForSeconds(2f);
+        left.SetActive(true);
+        right.SetActive(true);
+        ad.SetActive(true);
+    }
     IEnumerator LightOff()
     {
-        yield return new WaitForSeconds(24f);
+        yield return new WaitForSeconds(26f);
         isLightOff = true;
     }
 
     IEnumerator SoundOff()
     {
-        yield return new WaitForSeconds(28f);
+        yield return new WaitForSeconds(30f);
         isSoundOff = true;
     }
 }

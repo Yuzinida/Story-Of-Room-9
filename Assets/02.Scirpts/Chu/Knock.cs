@@ -10,6 +10,7 @@ public class Knock : MonoBehaviour
     
     bool knockRoom = false;
     int count = 0;
+    GameObject knockGuide;
     private void Awake()
     {
         
@@ -22,6 +23,7 @@ public class Knock : MonoBehaviour
         violence = GameObject.Find("Violence").GetComponent<AudioSource>();
         blackOut = GameObject.Find("BlackOut").GetComponent<AudioSource>();
         playerTo = GameObject.Find("PlayerTo").GetComponent<AudioSource>();
+        knockGuide = this.transform.GetChild(0).gameObject;
     }
 
 
@@ -39,12 +41,16 @@ public class Knock : MonoBehaviour
             {
                 count = 0;
                 knockRoomSound.Play();
-
+                if(knockGuide.activeSelf==true)
+                {
+                    knockGuide.SetActive(false);
+                }
             }
         }
     }
     public void NextScene()
     {
+        knockGuide.SetActive(true);
         //쪽지 받고 난 다음 시간 지연 더 늘리려면 여기
         knockRoom = true;
         Invoke("KnockRoom",15f);
@@ -61,6 +67,10 @@ public class Knock : MonoBehaviour
     {
         stopSinging.Play();
         knockRoom = false;
+        if(knockGuide.activeSelf==true)
+        {
+            knockGuide.SetActive(false);
+        }
         Invoke("Recede",8f);
         Invoke("ReStartSing",11f);
         

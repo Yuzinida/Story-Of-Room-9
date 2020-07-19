@@ -32,7 +32,7 @@ public class AdviserSound : MonoBehaviour
 
         rainStart.Play();   
 
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(9f);
 
         SceneManager.LoadScene(5);
 
