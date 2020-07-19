@@ -58,8 +58,8 @@ public class DRoom_mgr : MonoBehaviour
     IEnumerator EndSound()
     {
         yield return new WaitForSeconds(2f);
-        // 날씨 스탑
         ending.Play();
+        // 날씨 스탑 (소리먼저들려도 되고)       
 
         yield return new WaitForSeconds(12f);
         //set start color
