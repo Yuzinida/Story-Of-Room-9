@@ -28,7 +28,7 @@ public class DRoom_Collider : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("독방 안에서 스테이");
-        //audioSource.Stop();
+        audioSource.Stop();
     }
 
     void OnTriggerExit(Collider other)
