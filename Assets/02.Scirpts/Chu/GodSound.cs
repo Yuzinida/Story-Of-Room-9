@@ -103,6 +103,9 @@ public class GodSound : MonoBehaviour
         OpenM = GameObject.Find("door.m").GetComponent<Animator>();
         OpenM.SetTrigger("Open");
         doorMOpen.Play();
+
+        //2번째 방법
+        //쪽지도 setactive(true)로 만든다.
    }
 
 }
