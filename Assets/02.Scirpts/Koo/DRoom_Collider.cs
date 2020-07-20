@@ -10,7 +10,7 @@ public class DRoom_Collider : MonoBehaviour
     void Start()
     {
         // 오디오 소스 생성해서 추가
-        AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         // // 뮤트: true일 경우 소리가 나지 않음
         // audioSource.mute = false;
         // // 루핑: true일 경우 반복 재생
@@ -20,33 +20,25 @@ public class DRoom_Collider : MonoBehaviour
 
     }
 
-    // Collider 컴포넌트의 is Trigger가 false인 상태로 충돌을 시작했을 때
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("독방 안에 등장!");
     }
 
-
-
-    // Collider 컴포넌트의 is Trigger가 false인 상태로 충돌중일 때
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
         Debug.Log("독방 안에서 스테이");
         //audioSource.Stop();
     }
 
-
-
-    // Collider 컴포넌트의 is Trigger가 false인 상태로 충돌이 끝났을 때
-    private void OnCollisionExit(Collision collision)
+    void OnTriggerExit(Collider other)
     {
-        Debug.Log("독방 나감. 경고음 출동!!");
-        audioSource.Play();
-        //audioSource.Stop();
-
+        if (other.tag == "Hand")
+        {
+            Debug.Log("독방 나감. 경고음 출동!!");
+            audioSource.Play();
+            Debug.Log("오디오 나와랏!!");
+            //audioSource.Stop();
+        }
     }
-
-
-
-
 }
