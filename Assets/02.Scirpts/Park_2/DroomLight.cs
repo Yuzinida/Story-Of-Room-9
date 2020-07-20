@@ -12,12 +12,14 @@ public class DroomLight : MonoBehaviour
     float flowTime;
     public bool lightOn;
 
+    private DroomSkybox droomSkybox;
+
 
     void Start()
     {
+        droomSkybox = GameObject.Find("GameManager").GetComponent<DroomSkybox>();
         myLight = GetComponent<Light>();
         myLight.type = LightType.Spot;
-
     }
 
     void Update()
@@ -27,16 +29,18 @@ public class DroomLight : MonoBehaviour
 
         if (lightOn)
         {
-            flowTime = Mathf.Max(flowTime, 1);
-            flowTime += Time.deltaTime;
-            myLight.intensity = Mathf.PingPong(flowTime*38f, 100f);
+            myLight.intensity = droomSkybox.skyExposure;
+            // flowTime = Mathf.Max(flowTime, 1.0f);
+            // flowTime += Time.deltaTime;
 
-            // myLight.spotAngle = Random.Range(minAngle, maxAngle);
+            // myLight.intensity = Mathf.PingPong(flowTime*38f, 100f) + 4.0f;
 
-            myLight.spotAngle = Mathf.Lerp(minAngle, maxAngle, flowTime);
+            // //myLight.spotAngle = Random.Range(minAngle, maxAngle);
+
+            // myLight.spotAngle = Mathf.Lerp(minAngle, maxAngle, flowTime);
             // if (flowTime ==1){
 
-         //       DayChange();
+               // DayChange();
           // }
 
         }
