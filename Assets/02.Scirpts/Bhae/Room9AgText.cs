@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Valve.VR;
+using UnityEngine.SceneManagement;
 
 public class Room9AgText : MonoBehaviour
 {
@@ -11,46 +12,63 @@ public class Room9AgText : MonoBehaviour
 
 
     public GameObject canvas1,canvas2,canvas3,canvas4,canvas5;
+    GameObject final;
+    AudioSource manse;
 
-    
+    WhiteInOut ableTime;
 
     void Start()
     {
-        //set start color
-        SteamVR_Fade.Start(Color.white, 0f);
-        //set and start fade to
-        SteamVR_Fade.Start(Color.white, 0.1f);
-        //StartCoroutine("ShowUI");
-        StartCoroutine("WhiteIn");
+        
+        StartCoroutine("WhiteInC");
+        ableTime = GameObject.Find("BackSound").GetComponent<WhiteInOut>();
+        final = GameObject.Find("Final").transform.GetChild(0).gameObject;
+        manse = GameObject.Find("Manse").GetComponent<AudioSource>();
 
     }
 
-    IEnumerator WhiteIn()
+    IEnumerator WhiteInC()
     {
         
-
-        yield return new WaitForSeconds(3f);
         //set start color
         SteamVR_Fade.Start(Color.white, 0f);
         //set and start fade to
-        SteamVR_Fade.Start(new Color(1,1,1,0.01f), 3f);
+        SteamVR_Fade.Start(Color.white, 0f);
+        //StartCoroutine("ShowUI");
+        yield return new WaitForSeconds(2f);
+        ableTime.enabled = true;
 
     }
 
     
-
-    IEnumerator ShowUI()
+    public void ShowUI()
     {
-        yield return new WaitForSeconds(0.5f);
-        can1();
+        StartCoroutine("ShowUIStart");
+    }
+
+    IEnumerator ShowUIStart()
+    {
         yield return new WaitForSeconds(8f);
+        can1();
+        yield return new WaitForSeconds(3f);
         can2();
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(3f);
         can3();
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(3f);
         can4();
-        yield return new WaitForSeconds(7f);
-        can4();
+        yield return new WaitForSeconds(3f);
+        can5();
+        final.SetActive(true);
+        yield return new WaitForSeconds(24f);
+        if(final.activeSelf)
+        {
+            final.SetActive(false);
+            manse.Play();
+        }
+        yield return new WaitForSeconds(19f);
+        SteamVR_Fade.Start(Color.white, 2f);
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(7);
     }
    public void can1()
     {
