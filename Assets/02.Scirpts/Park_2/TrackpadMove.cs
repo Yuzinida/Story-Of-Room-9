@@ -7,6 +7,7 @@ public class TrackpadMove : MonoBehaviour
 {
     private Transform camTr;
     private CharacterController cc;
+    Transform target;
 
     public float speed = 3.0f;
 
@@ -25,13 +26,20 @@ public class TrackpadMove : MonoBehaviour
     {
         camTr = Camera.main.GetComponent<Transform>();
         cc = GetComponent<CharacterController>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
     void Update()
     {
 
         if (trackPadClick.GetStateDown(any))
         {
-            Debug.Log("트랙패드 클릭");
+            Vector2 rot = trackPadPosition.GetAxis(any);
+
+            int facingx = 0;
+            facingx = (rot.x > 0.0f) ? 1 : -1;
+            RotateView(facingx);
+
+            Debug.Log(facingx);
         }
 
         if (trackPadTouch.GetState(any))
@@ -54,5 +62,18 @@ public class TrackpadMove : MonoBehaviour
             cc.SimpleMove(heading * speed * facing);
 
 
+        }
+
+        void RotateView(int facingx)
+        {
+            if(facingx > 0)
+            {
+                target.rotation = Quaternion.Euler(0,target.rotation.eulerAngles.y + 45f,0);
+            }
+
+            if(facingx < 0)
+            {
+                target.rotation = Quaternion.Euler(0,target.rotation.eulerAngles.y + -45f,0);
+            }
         }
 }
