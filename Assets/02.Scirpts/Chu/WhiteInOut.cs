@@ -46,13 +46,13 @@ public class WhiteInOut : MonoBehaviour
     IEnumerator EchoUI()
     {
         yield return new WaitForSeconds(7f);
-        echotext.text = "관순 : 성경에서도 행함이 없는 믿음은 온전하지 못하다 그랬잖아요";
+        echotext.text = "관순 : 성경에서도 행함이 없는 믿음은 \n 온전하지 못하다 그랬잖아요";
 
         yield return new WaitForSeconds(8f);
-        echotext.text = "관순 : 난 나중에 해보기라도 할 걸 하고 후회하고 싶지 않아요."; 
+        echotext.text = "관순 : 난 나중에 해보기라도 할 걸 하고 \n 후회하고 싶지 않아요."; 
 
         yield return new WaitForSeconds(8f);
-        echotext.text = "관순 : 이런짓도 했었다 이렇게 말 할 거예요."; 
+        echotext.text = "관순 : 이런 짓도 했었다 이렇게 말 할 거예요."; 
 
         yield return new WaitForSeconds(7f);
         echotext.text = "";
