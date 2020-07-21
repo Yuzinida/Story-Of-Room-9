@@ -6,7 +6,7 @@ public class AddForce : MonoBehaviour
 {
     public Animator letterAnimator;
 
-    UIFADE showLetter;
+    // UIFADE showLetter;
     int count = 0;
     // Start is called before the first frame update
     void Start()
@@ -14,9 +14,11 @@ public class AddForce : MonoBehaviour
         //1번째 방법
         //animation으로 이 박스를 움직인다.
 
-        GetComponent<Rigidbody>().AddForce(transform.up*-800);
-        letterAnimator.SetTrigger("LetterMove");
-        showLetter = GameObject.Find("LetterUI").GetComponent<UIFADE>();
+        // GetComponent<Rigidbody>().AddForce(transform.up*-800);
+        this.GetComponent<Animator>().SetTrigger("LetterMove");
+        StartCoroutine("Paper");
+        
+        // showLetter = GameObject.Find("LetterUI").GetComponent<UIFADE>();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -28,25 +30,32 @@ public class AddForce : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    IEnumerator Paper()
     {
-        if(other.gameObject.CompareTag("Hand"))
-        {
-            showLetter.Fadem();
-            count += 1;
-            if(count <= 1 )
-            {
-                GameObject.Find("KnockWall").GetComponent<Knock>().NextScene();
-            }
+        yield return new WaitForSeconds(1f);
+
+        letterAnimator.SetTrigger("");  //ㅇㅕㄱㅣㅇㅛ
+    }
+
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if(other.gameObject.CompareTag("Hand"))
+    //     {
+    //         showLetter.Fadem();
+    //         count += 1;
+    //         if(count <= 1 )
+    //         {
+    //             GameObject.Find("KnockWall").GetComponent<Knock>().NextScene();
+    //         }
             
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.gameObject.CompareTag("Hand"))
-        {
-            showLetter.Fadem();
-        }
-    }
+    //     }
+    // }
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if(other.gameObject.CompareTag("Hand"))
+    //     {
+    //         showLetter.Fadem();
+    //     }
+    // }
     
 }
