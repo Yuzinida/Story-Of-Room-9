@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sign : MonoBehaviour
 {
@@ -24,5 +25,12 @@ public class Sign : MonoBehaviour
                 renderer.material.color = Color.black;
             }
         }
+        StartCoroutine("Credit");
+    }
+
+    IEnumerator Credit()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(8);
     }
 }
