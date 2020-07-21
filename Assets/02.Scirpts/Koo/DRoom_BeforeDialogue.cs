@@ -11,35 +11,35 @@ public class DRoom_BeforeDialogue : MonoBehaviour
     void Start()
     {
         // UI와 판넬 입력
-        colliderTutorialUI = GameObject.Find("colliderTutorialUI");
-        colliderSmall = GameObject.Find("colliderSmall");
-        colliderBig = GameObject.Find("colliderBig");
+        //colliderTutorialUI = GameObject.Find("colliderTutorialUI");
+        //colliderSmall = GameObject.Find("colliderSmall");
+        //colliderBig = GameObject.Find("colliderBig");
         timebar = GameObject.Find("Canvas_Timebar");
         timeLoad = GameObject.Find("TimeLoad");
 
 
-        // colliderTutorialUI.SetActive(false);
-        // colliderSmall.SetActive(false);
-        // colliderBig.SetActive(false);
-        // timebar.SetActive(false);
-        // timeLoad.SetActive(false);
+        colliderTutorialUI.SetActive(false);
+        colliderSmall.SetActive(false);
+        colliderBig.SetActive(false);
+        timebar.SetActive(false);
+        timeLoad.SetActive(false);
     }
     void Update()
     {
         StartCoroutine("Door_Tutorial_Collider_Tutorial");
     }
-    public void DRoom_BeforeDialouge_func()
-    {
-        StartCoroutine("Door_Tutorial_Collider_Tutorial");
-    }
+
+
+    // public void DRoom_BeforeDialouge_func()
+    // {
+    //     StartCoroutine("Door_Tutorial_Collider_Tutorial");
+    // }
 
 
     IEnumerator Door_Tutorial_Collider_Tutorial()
     {
         // 1. 문 열리기 애니메이션 & 소리 시작
-        colliderTutorialUI.SetActive(false);
-
-
+        //colliderTutorialUI.SetActive(false);
 
 
         yield return new WaitForSeconds(5.0f);
