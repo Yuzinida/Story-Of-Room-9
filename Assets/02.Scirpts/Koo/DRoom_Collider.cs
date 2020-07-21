@@ -38,7 +38,12 @@ public class DRoom_Collider : MonoBehaviour
             Debug.Log("독방 나감. 경고음 출동!!");
             audioSource.Play();
             Debug.Log("오디오 나와랏!!");
-            //audioSource.Stop();
+            // 시간 재 시작
+
+            // 시간이 다 되면 -> 바로 넘어가기
+            
+             
+
         }
     }
 }

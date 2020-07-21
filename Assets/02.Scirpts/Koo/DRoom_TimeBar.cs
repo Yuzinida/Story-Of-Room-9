@@ -10,14 +10,13 @@ public class DRoom_TimeBar : MonoBehaviour
 
     void Start()
     {
-
     }
 
-    void TimeGo()
+    void TimeGo() // 콜라이더 미션 시간(10초)를 보여주는 타임바
     {
-        if (progressbar.value < 10f)
+        if (progressbar.value < 1f)
         {
-            progressbar.value = Mathf.MoveTowards(progressbar.value, 10f, Time.deltaTime);
+            progressbar.value = Mathf.MoveTowards(progressbar.value, 1f, Time.deltaTime);
         }
         else
         {
