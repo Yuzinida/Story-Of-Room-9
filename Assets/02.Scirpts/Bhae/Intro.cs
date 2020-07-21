@@ -12,9 +12,7 @@ public class Intro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        left = GameObject.Find("Left").GetComponent<AudioSource>();
-        right = GameObject.Find("Right").GetComponent<AudioSource>();
-        all = GameObject.Find("All").GetComponent<AudioSource>();
+       
     }
 
     private void OnTriggerEnter(Collider other)

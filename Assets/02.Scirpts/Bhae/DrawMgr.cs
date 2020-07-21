@@ -16,6 +16,8 @@ public class DrawMgr : MonoBehaviour
 
     private LineRenderer line;
 
+    public Transform name;
+
     void Start()
     {
         
@@ -40,6 +42,7 @@ public class DrawMgr : MonoBehaviour
     {
         //라인렌더러를 추가할 게임오브젝트 생성
         GameObject lineObject = new GameObject("Line");
+        lineObject.gameObject.tag="Line";
         line = lineObject.AddComponent<LineRenderer>();
 
         //라인렌더러에 연결할 머테리얼 생성
@@ -62,6 +65,7 @@ public class DrawMgr : MonoBehaviour
         Vector3 position =pose.GetLastLocalPosition(rightHand);
         line.SetPosition(0,position);
 
+        line.transform.SetParent(name);
     }
 
 }
