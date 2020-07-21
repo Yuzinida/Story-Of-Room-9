@@ -145,7 +145,7 @@ public class DRoom_Dialogue : MonoBehaviour
     IEnumerator EndUID()
     {
         yield return new WaitForSeconds(3.5f);
-        Text_You.text = "관순 : (마음다잡은듯) 금년이 윤달이 아니라면 딱 삼 일 남은 거 같아요.";
+        Text_You.text = "관순 : 금년이 윤달이 아니라면 딱 삼 일 남은 거 같아요.";
         You_Sound4.Play();
 
         yield return new WaitForSeconds(8.0f);
