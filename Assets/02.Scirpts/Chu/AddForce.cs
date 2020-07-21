@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class AddForce : MonoBehaviour
 {
+    public Animator letterAnimator;
+
     UIFADE showLetter;
     int count = 0;
     // Start is called before the first frame update
     void Start()
     {
+        //1번째 방법
+        //animation으로 이 박스를 움직인다.
+
         GetComponent<Rigidbody>().AddForce(transform.up*-800);
+        letterAnimator.SetTrigger("LetterMove");
         showLetter = GameObject.Find("LetterUI").GetComponent<UIFADE>();
     }
 
