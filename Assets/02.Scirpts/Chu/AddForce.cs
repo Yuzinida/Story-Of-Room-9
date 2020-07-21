@@ -32,9 +32,9 @@ public class AddForce : MonoBehaviour
 
     IEnumerator Paper()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.4f);
 
-        letterAnimator.SetTrigger("");  //ㅇㅕㄱㅣㅇㅛ
+        letterAnimator.SetTrigger("ShowLetter");  //ㅇㅕㄱㅣㅇㅛ
     }
 
     // private void OnTriggerEnter(Collider other)
