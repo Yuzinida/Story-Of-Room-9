@@ -6,12 +6,14 @@ public class FinalScript : MonoBehaviour
 {
     Transform target;
     AudioSource final,manse;
+    Room9AgText skip;
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         final = GameObject.Find("Ending").GetComponent<AudioSource>();
         manse = GameObject.Find("Manse").GetComponent<AudioSource>();
+        skip = GameObject.Find("CanvasMaster").GetComponent<Room9AgText>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class FinalScript : MonoBehaviour
         {
             final.Stop();
             manse.Play();
+            skip.Skipmanse();
             this.gameObject.SetActive(false);
         }
     }

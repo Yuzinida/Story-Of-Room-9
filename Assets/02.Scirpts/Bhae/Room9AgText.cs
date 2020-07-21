@@ -65,9 +65,12 @@ public class Room9AgText : MonoBehaviour
             final.SetActive(false);
             manse.Play();
         }
+
         yield return new WaitForSeconds(19f);
-        SteamVR_Fade.Start(Color.white, 2f);
-        yield return new WaitForSeconds(2f);
+        SteamVR_Fade.Start(Color.black, 4f);
+        
+        yield return new WaitForSeconds(6f);
+        DontDestroyOnLoad(manse.gameObject);
         SceneManager.LoadScene(7);
     }
    public void can1()
@@ -110,5 +113,21 @@ public class Room9AgText : MonoBehaviour
             canvasGroup.alpha = Mathf.Lerp(start,end, counter/duration);
             yield return null;
         }
+    }
+
+    public void Skipmanse()
+    {
+        StartCoroutine("SkipFinal");
+    }
+
+    IEnumerator SkipFinal()
+    {
+        yield return new WaitForSeconds(19f);
+        SteamVR_Fade.Start(Color.black, 4f);
+        
+        yield return new WaitForSeconds(6f);
+        DontDestroyOnLoad(manse.gameObject);
+        SceneManager.LoadScene(7);
+
     }
 }
