@@ -60,7 +60,7 @@ public class GodSound : MonoBehaviour
             //set start color
             SteamVR_Fade.Start(Color.clear, 0f);
             //set and start fade to
-            SteamVR_Fade.Start(new Color(0,0,0,0.5f), 0.1f);
+            SteamVR_Fade.Start(new Color(0,0,0,0.8f), 1f);
 
             Hashtable ht = new Hashtable();
             ht.Add("time",20f);
@@ -88,7 +88,7 @@ public class GodSound : MonoBehaviour
             //set start color
             SteamVR_Fade.Start(Color.clear, 0f);
             //set and start fade to
-            SteamVR_Fade.Start(new Color(0,0,0,0.5f), 0.1f);
+            SteamVR_Fade.Start(new Color(0,0,0,0.8f), 1f);
 
             godSound.clip = eat;
             godSound.Play();
