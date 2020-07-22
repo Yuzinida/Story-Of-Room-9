@@ -12,8 +12,8 @@ public class GodSound : MonoBehaviour
    public AudioClip eat;
    public AudioClip walk;
    GameObject bowl;
-   Light lt;
-   Light slt;
+//    Light lt;
+//    Light slt;
    Animator OpenM;
    AudioSource doorMOpen;
    private void Start()
@@ -25,8 +25,8 @@ public class GodSound : MonoBehaviour
 
        
        godSound = this.GetComponent<AudioSource>();
-       lt = GameObject.Find("Point Light").GetComponent<Light>();
-       slt = GameObject.Find("Spot Light").GetComponent<Light>();
+    //    lt = GameObject.Find("Point Light").GetComponent<Light>();
+    //    slt = GameObject.Find("Spot Light").GetComponent<Light>();
        doorMOpen = GameObject.Find("door.m").GetComponent<AudioSource>();
        bowl = GameObject.Find("RB_W").transform.GetChild(0).gameObject;
 
@@ -55,8 +55,12 @@ public class GodSound : MonoBehaviour
             godSound.clip = walk;
             godSound.Play();
 
-            lt.intensity = 0.2f;             
-            slt.intensity = 5f;
+            // lt.intensity = 0.2f;             
+            // slt.intensity = 5f;
+            //set start color
+            SteamVR_Fade.Start(Color.clear, 0f);
+            //set and start fade to
+            SteamVR_Fade.Start(new Color(0,0,0,0.5f), 0.1f);
 
             Hashtable ht = new Hashtable();
             ht.Add("time",20f);
@@ -69,7 +73,7 @@ public class GodSound : MonoBehaviour
             Invoke("OutLight",20f);
 
             //ㅅㅡㅌㅗㄹㅣ ㅅㅣㅈㅏㄱ
-            Invoke("StartStory",25f);
+            Invoke("StartStory",23f);
        }
        
         
@@ -79,8 +83,12 @@ public class GodSound : MonoBehaviour
        countEat+=1;
        if(countEat<=1){
 
-            lt.intensity = 0.2f; 
-            slt.intensity = 30f;
+            // lt.intensity = 0.2f; 
+            // slt.intensity = 30f;
+            //set start color
+            SteamVR_Fade.Start(Color.clear, 0f);
+            //set and start fade to
+            SteamVR_Fade.Start(new Color(0,0,0,0.5f), 0.1f);
 
             godSound.clip = eat;
             godSound.Play();
@@ -92,8 +100,12 @@ public class GodSound : MonoBehaviour
    }
    void OutLight()
    {
-       lt.intensity = 1.26f;
-       slt.intensity = 1274f;
+       //set start color
+        SteamVR_Fade.Start(Color.black, 0f);
+        //set and start fade to
+        SteamVR_Fade.Start(Color.clear, 0.1f);
+    //    lt.intensity = 1.26f;
+    //    slt.intensity = 1274f;
    }
 
    void StartStory()

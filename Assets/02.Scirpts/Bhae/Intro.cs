@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Intro : MonoBehaviour
 {
-    //AudioSource left,right,all;
     float hand = 0;
     bool isSoundOut = false;
+    AudioSource left,right,all;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,6 @@ public class Intro : MonoBehaviour
         }
     }
    
-    /*
     // Update is called once per frame
     void Update()
     {
@@ -48,15 +47,15 @@ public class Intro : MonoBehaviour
             }
         }
     }
-    */
 
     IEnumerator FadeOutIntro()
     {
         isSoundOut =true;
         GameObject.Find("Canvas2").GetComponent<UIFADE>().Fadem();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
+        GameObject.Find("Quad").SetActive(false);
         GameObject.Find("GunFire").GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene(2);
 
     }
