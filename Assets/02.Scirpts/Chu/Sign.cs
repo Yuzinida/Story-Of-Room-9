@@ -29,7 +29,7 @@ public class Sign : MonoBehaviour
         if(other.CompareTag("Hand"))
         {
             line = name.transform;      
-            line.position = new Vector3(-0.05f,0.185f,1.034f);
+            line.position = new Vector3(0.042f,0.15f,1.106f);
             line.rotation = Quaternion.Euler(25.6f,0,0);
             
             for(int i=0; i<line.childCount; i++)
@@ -55,7 +55,7 @@ public class Sign : MonoBehaviour
         SteamVR_Fade.Start(Color.clear, 0f);
         //set and start fade to
         SteamVR_Fade.Start(Color.black, 2f);
-        
+
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(8);
     }
