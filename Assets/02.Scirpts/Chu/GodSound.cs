@@ -56,7 +56,7 @@ public class GodSound : MonoBehaviour
             godSound.Play();
 
             lt.intensity = 0.2f;             
-            slt.intensity = 10f;
+            slt.intensity = 5f;
 
             Hashtable ht = new Hashtable();
             ht.Add("time",20f);
