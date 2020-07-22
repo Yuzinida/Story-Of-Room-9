@@ -62,7 +62,6 @@ public class DRoom_mgr : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         ending.Play();
-        sunlight.SetBool("Daylight",false);
         // 날씨 스탑 (소리먼저들려도 되고)       
 
         yield return new WaitForSeconds(12f);
