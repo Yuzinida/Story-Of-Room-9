@@ -7,12 +7,15 @@ public class Intro : MonoBehaviour
 {
     AudioSource left,right,all;
     float hand = 0;
-    bool isSoundOut;
+    bool isSoundOut = false;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+       left = GameObject.Find("Left").GetComponent<AudioSource>();
+       right = GameObject.Find("Right").GetComponent<AudioSource>();
+       all = GameObject.Find("All").GetComponent<AudioSource>();
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,7 +53,9 @@ public class Intro : MonoBehaviour
     {
         isSoundOut =true;
         GameObject.Find("Canvas2").GetComponent<UIFADE>().Fadem();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
+        GameObject.Find("GunFire").GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(2);
 
     }
