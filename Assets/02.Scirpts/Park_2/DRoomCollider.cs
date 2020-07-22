@@ -11,7 +11,7 @@ public class DRoomCollider : MonoBehaviour
         void Start()
     {
         // 오디오 소스 생성해서 추가
-        audioSource = GetComponent<AudioSource>();
+        audioSource = this.GetComponent<AudioSource>();
         // // 뮤트: true일 경우 소리가 나지 않음
         // audioSource.mute = false;
         // // 루핑: true일 경우 반복 재생
@@ -21,16 +21,16 @@ public class DRoomCollider : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("독방 안에 등장!");
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    Debug.Log("독방 안에 등장!");
+    //}
 
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log("독방 안에서 스테이");
-        audioSource.Stop();
-    }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    Debug.Log("독방 안에서 스테이");
+    //    audioSource.Stop();
+    //}
 
     void OnTriggerExit(Collider other)
     {
