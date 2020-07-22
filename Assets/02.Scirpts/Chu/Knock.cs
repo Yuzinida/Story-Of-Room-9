@@ -118,6 +118,7 @@ public class Knock : MonoBehaviour
     void BlackOut()
     {
         blackOut.Play();
+        GameObject.Find("door").GetComponent<Animator>().SetTrigger("DoorOpen");
         Invoke("Fade_Out",0.5f);
         
     }
