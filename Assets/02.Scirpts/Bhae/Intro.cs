@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Intro : MonoBehaviour
 {
-    AudioSource left,right,all;
+    //AudioSource left,right,all;
     float hand = 0;
     bool isSoundOut;
 
@@ -29,7 +29,7 @@ public class Intro : MonoBehaviour
         }
     }
    
-
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +45,7 @@ public class Intro : MonoBehaviour
             }
         }
     }
+    */
 
     IEnumerator FadeOutIntro()
     {
