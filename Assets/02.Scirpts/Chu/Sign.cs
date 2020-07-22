@@ -8,6 +8,7 @@ public class Sign : MonoBehaviour
     
     Transform line;
     Renderer scolor;
+    Vector3 reposition;
     
     public  GameObject name;
        
@@ -16,22 +17,28 @@ public class Sign : MonoBehaviour
         if(other.CompareTag("Hand"))
         {
             line = name.transform;      
-            line.position = new Vector3(-0.207f,-0.863f,0.568f);
+            line.position = new Vector3(0.13f,-0.37f,0.768f);
             line.rotation = Quaternion.Euler(25.6f,0,0);
             
             for(int i=0; i<line.childCount; i++)
             {
-                Renderer renderer = line.GetChild(i).GetComponent<Renderer>();
-                renderer.material.color = Color.black;
+                reposition = line.GetChild(i).transform.position;
+                reposition.z = 0f;
+                // Renderer renderer = line.GetChild(i).GetComponent<Renderer>();
+                // renderer.material.color = Color.black;
             }
-            //StartCoroutine("Credit");
+            // Ending();
         }
         
     }
 
-    // IEnumerator Credit()
-    // {
-    //     yield return new WaitForSeconds(3f);
-    //     SceneManager.LoadScene(8);
-    // }
+    void Ending()
+    {
+        StartCoroutine("Credit");
+    }
+    IEnumerator Credit()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(8);
+    }
 }
