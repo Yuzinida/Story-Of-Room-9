@@ -64,6 +64,7 @@ public class DRoom_BeforeDialogue : MonoBehaviour
         text_Tutorial.text = "- 독방 체험 미션 -\n독방은 실제 사람이 겨우 서 있을 정도 크기로 독립운동가를 가둔 일제의 고문 도구입니다. 2∼3일 갇혀 있으면 근육이 찢어지는 고통 끝에 전신이 마비된다고 합니다.";
 
         // 5. 유관순 열사와 대화 시작
+        // 유관순 스크립트 호출
     }
 
 

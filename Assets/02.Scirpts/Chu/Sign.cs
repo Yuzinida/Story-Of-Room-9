@@ -24,14 +24,14 @@ public class Sign : MonoBehaviour
                 Renderer renderer = line.GetChild(i).GetComponent<Renderer>();
                 renderer.material.color = Color.black;
             }
-            StartCoroutine("Credit");
+            //StartCoroutine("Credit");
         }
         
     }
 
-    IEnumerator Credit()
-    {
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(8);
-    }
+    // IEnumerator Credit()
+    // {
+    //     yield return new WaitForSeconds(3f);
+    //     SceneManager.LoadScene(8);
+    // }
 }
