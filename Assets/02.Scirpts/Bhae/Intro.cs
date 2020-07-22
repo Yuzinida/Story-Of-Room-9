@@ -38,9 +38,9 @@ public class Intro : MonoBehaviour
 
         if(isSoundOut == true)
         {
-            all.volume-=0.005f;
-            right.volume-=0.005f;
-            left.volume-=0.005f;
+            all.volume-=0.003f;
+            right.volume-=0.003f;
+            left.volume-=0.003f;
             if(all.volume <= 0.0f)
             {
                 isSoundOut = false;      

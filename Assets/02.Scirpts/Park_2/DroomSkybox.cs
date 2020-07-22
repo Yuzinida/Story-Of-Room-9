@@ -11,16 +11,11 @@ public class DroomSkybox : MonoBehaviour
     {
         RenderSettings.skybox.SetFloat("_Rotation", Time.time * Skyboxspeed);
 
-        //관순과의 대화가 끝난다면
-        // if (){
-
-        LightOnOff();
-        // }
-
+ 
 
     }
 
-    void LightOnOff()
+    public void LightOnOff()
     {
         skyExposure =  Mathf.Abs(Mathf.Sin(Time.time * Mathf.Deg2Rad * 50.0f)) * 0.5f;
         RenderSettings.skybox.SetFloat("_Exposure", skyExposure);

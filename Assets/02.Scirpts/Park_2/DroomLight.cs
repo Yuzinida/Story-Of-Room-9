@@ -15,7 +15,7 @@ public class DroomLight : MonoBehaviour
     private DroomSkybox droomSkybox;
 
 
-    void Start()
+    void Awake()
     {
         droomSkybox = GameObject.Find("GameManager").GetComponent<DroomSkybox>();
         myLight = GetComponent<Light>();
@@ -27,7 +27,7 @@ public class DroomLight : MonoBehaviour
 //관순과의 대화 종료
 
 
-        if (lightOn)
+        if (lightOn == true)
         {
             myLight.intensity = droomSkybox.skyExposure;
             // flowTime = Mathf.Max(flowTime, 1.0f);

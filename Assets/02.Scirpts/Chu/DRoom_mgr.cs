@@ -9,6 +9,7 @@ public class DRoom_mgr : MonoBehaviour
     UIFADE dCanvas;
     GameObject startUI;
     AudioSource backSound,ending;
+    Animator sunlight;
     // Start is called before the first frame update
     private void Start()
     {
@@ -17,6 +18,7 @@ public class DRoom_mgr : MonoBehaviour
         startUI = GameObject.Find("PlayerDialogue").transform.GetChild(0).gameObject;
         backSound = GameObject.Find("BackSound").GetComponent<AudioSource>();
         ending = GameObject.Find("Ending").GetComponent<AudioSource>();
+        sunlight = GameObject.Find("SunLight").GetComponent<Animator>();
     }
     IEnumerator PlayDRoom()
     {
@@ -50,7 +52,8 @@ public class DRoom_mgr : MonoBehaviour
     public void Ending()
     {
         // 날씨 변화 시작 
-
+        sunlight.SetBool("Daylight",true);
+        GameObject.Find("RainDrop").gameObject.SetActive(false);
         StartCoroutine("EndSound");
         
     }
@@ -59,6 +62,7 @@ public class DRoom_mgr : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         ending.Play();
+        sunlight.SetBool("Daylight",false);
         // 날씨 스탑 (소리먼저들려도 되고)       
 
         yield return new WaitForSeconds(12f);
@@ -67,7 +71,7 @@ public class DRoom_mgr : MonoBehaviour
         //set and start fade to
         SteamVR_Fade.Start(Color.white, 6f);
 
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(3.5f);
         SceneManager.LoadScene(6);
     }
 }

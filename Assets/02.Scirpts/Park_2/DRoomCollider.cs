@@ -42,4 +42,15 @@ public class DRoomCollider : MonoBehaviour
             // 시간 재 시작
         }
     }
+    void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.tag == "Hand")
+        {
+            Debug.Log("독방 나감. 경고음 출동!!");
+            audioSource.Stop();
+            Debug.Log("오디오 나와랏!!");
+            // 시간 재 시작
+        }
+    }
 }
