@@ -63,17 +63,16 @@ public class GodSound : MonoBehaviour
             SteamVR_Fade.Start(new Color(0,0,0,0.8f), 1f);
 
             Hashtable ht = new Hashtable();
-            ht.Add("time",20f);
+            ht.Add("time",15f);
             ht.Add("path",iTweenPath.GetPath("GodWalk"));
             ht.Add("easetype",iTween.EaseType.linear);
-            ht.Add("delay",3f);
 
             iTween.MoveTo(this.gameObject, ht);
 
-            Invoke("OutLight",20f);
+            Invoke("OutLight",12f);
 
             //ㅅㅡㅌㅗㄹㅣ ㅅㅣㅈㅏㄱ
-            Invoke("StartStory",23f);
+            Invoke("StartStory",15f);
        }
        
         
@@ -93,7 +92,7 @@ public class GodSound : MonoBehaviour
             godSound.clip = eat;
             godSound.Play();
 
-            Invoke("OutLight",15f);
+            Invoke("OutLight",7.5f);
             
        }
         

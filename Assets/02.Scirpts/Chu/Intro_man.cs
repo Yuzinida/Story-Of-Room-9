@@ -21,7 +21,7 @@ public class Intro_man : MonoBehaviour
             all.volume +=0.005f;
             left.volume +=0.005f;
             right.volume +=0.005f;
-            if(all.volume >= 0.6f)
+            if(all.volume >= 0.5f)
             {
                 isSound = false;      
             }

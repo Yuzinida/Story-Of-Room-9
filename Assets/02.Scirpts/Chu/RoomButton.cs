@@ -11,7 +11,6 @@ public class RoomButton : MonoBehaviour
     GodSound godSound;
     
     GameObject police;
-    int count =0 ;
     
     private void Start()
     {
@@ -36,17 +35,11 @@ public class RoomButton : MonoBehaviour
             }
             else if(this.gameObject.name == "Touch_two")
             {
-                Invoke("ActPolice",15f);
                 godSound.GodEat();
+                Invoke("ActPolice",6f);
+                
             }
-            else if(this.gameObject.name == "Touch_Letter")
-            {
-                count += 1;
-            if(count <= 1 )
-            {
-                GameObject.Find("KnockWall").GetComponent<Knock>().NextScene();
-            }
-            }
+            
         }
     }
     void ActPolice()
