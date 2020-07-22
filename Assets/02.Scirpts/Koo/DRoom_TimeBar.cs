@@ -26,7 +26,7 @@ public class DRoom_TimeBar : MonoBehaviour
         }
         else
         {
-            barText.text = " 끝 ";
+            barText.text = " 통과하셨습니다. ";
         }
     }
 
