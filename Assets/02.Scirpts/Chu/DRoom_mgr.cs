@@ -18,7 +18,7 @@ public class DRoom_mgr : MonoBehaviour
         startUI = GameObject.Find("PlayerDialogue").transform.GetChild(0).gameObject;
         backSound = GameObject.Find("BackSound").GetComponent<AudioSource>();
         ending = GameObject.Find("Ending").GetComponent<AudioSource>();
-        sunlight = GameObject.Find("SunLight").GetComponent<Animator>();
+        sunlight = GameObject.Find("DayLight").GetComponent<Animator>();
     }
     IEnumerator PlayDRoom()
     {
@@ -60,7 +60,7 @@ public class DRoom_mgr : MonoBehaviour
 
     IEnumerator EndSound()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3.5f);
         ending.Play();
         // 날씨 스탑 (소리먼저들려도 되고)       
 

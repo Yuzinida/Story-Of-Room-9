@@ -151,14 +151,12 @@ public class DRoom_Dialogue : MonoBehaviour
         yield return new WaitForSeconds(8.0f);
         YouUI.SetActive(false);
 
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(1.5f);
         for(int i=0 ; i<100; i++)
         {
             yield return new WaitForSeconds(0.02f);
             gamemgr.volume -= 0.01f;
         }
-
-        yield return new WaitForSeconds(2f);
         gamemgr.gameObject.GetComponent<DRoom_mgr>().Ending();
     }
 }
