@@ -13,6 +13,7 @@ public class GameStart : MonoBehaviour
    }
    IEnumerator Delay()
    {
+       this.GetComponent<AudioSource>().Play();
        //set start color
         SteamVR_Fade.Start(Color.clear, 0f);
         //set and start fade to

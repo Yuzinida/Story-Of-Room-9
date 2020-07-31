@@ -5,6 +5,7 @@ using UnityEngine;
 public class StartSound : MonoBehaviour
 {
      AudioSource audioSource;
+     bool once = true;
     void Start()
     {
         audioSource = this.GetComponent<AudioSource>();
@@ -13,7 +14,19 @@ public class StartSound : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        audioSource.Play();
-        Debug.Log("11111");
+        if(once)
+        {
+            once = false;
+            audioSource.Play();
+            StartCoroutine("DelaySound");
+        }
+
+        
+    }
+    
+    IEnumerator DelaySound()
+    {
+        yield return new WaitForSeconds(0.5f);
+        once = true;
     }
 }

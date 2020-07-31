@@ -12,24 +12,24 @@ EditorBuildSettings:
     path: Assets/01.Scenes/02.Intro.unity
     guid: 6251476b9f7083e45935d88a8d7135a6
   - enabled: 1
-    path: Assets/01.Scenes/02.Transition_Chu.unity
+    path: Assets/01.Scenes/03.Transition.unity
     guid: 3d44d96639db62c47a31a45463ad4e42
   - enabled: 1
-    path: Assets/01.Scenes/03.Rooom9_Chu_Final.unity
+    path: Assets/01.Scenes/04.Rooom9.unity
     guid: f3898e95bf1086841975f77643764ec2
   - enabled: 1
-    path: Assets/01.Scenes/03_4.Move_Chu.unity
+    path: Assets/01.Scenes/05.Transition.unity
     guid: 31e9c70570f0bdc408e1537e741c6191
   - enabled: 1
-    path: Assets/01.Scenes/04.DRoom_Chu_Final.unity
+    path: Assets/01.Scenes/06.DRoom.unity
     guid: 34dcfa973a9032346a6c1bd756b41884
   - enabled: 1
-    path: Assets/01.Scenes/05.Room9_Again.unity
+    path: Assets/01.Scenes/07.Room9_Again.unity
     guid: 61d495714bcc73348a734dc0929a61cc
   - enabled: 1
-    path: Assets/01.Scenes/06.Outtro.unity
+    path: Assets/01.Scenes/08.Outtro.unity
     guid: eb5f3e8c9020e0947af3bd25e62b82d9
   - enabled: 1
-    path: Assets/01.Scenes/07. Ending.unity
+    path: Assets/01.Scenes/09. Ending.unity
     guid: 93534bfb2d453724693845315b567bc0
   m_configObjects: {}

@@ -11,6 +11,9 @@ public class RoomButton : MonoBehaviour
     GodSound godSound;
     
     GameObject police;
+    int countW=0;
+    int countE=0;
+
     
     private void Start()
     {
@@ -27,15 +30,19 @@ public class RoomButton : MonoBehaviour
     {
         if(other.CompareTag("Hand"))
         {
-            fadeUI.Fadem();
-            this.GetComponent<UIFADE>().Fadem();
-            if(this.gameObject.name == "Touch_one")
+            if(this.gameObject.name == "Touch_one"&countW==0)
             {
+                countW ++;
                 godSound.GodWalk();
+                fadeUI.Fadem();
+                this.GetComponent<UIFADE>().Fadem();
             }
-            else if(this.gameObject.name == "Touch_two")
+            else if(this.gameObject.name == "Touch_two"&countE==0)
             {
+                countE ++;
                 godSound.GodEat();
+                fadeUI.Fadem();
+                this.GetComponent<UIFADE>().Fadem();
                 Invoke("ActPolice",6f);
                 
             }
