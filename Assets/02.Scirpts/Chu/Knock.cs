@@ -37,22 +37,31 @@ public class Knock : MonoBehaviour
             {
                 count = 0;
             }
+            else if(knockRoom == true && count >=1 )
+            {
+                if(knockGuide.activeSelf==true)
+                {
+                    knockGuide.SetActive(false);
+                    // .Stop();
+                }
+            }
             else if(knockRoom == true && count >=4 )
             {
                 count = 0;
                 knockRoomSound.Play();
-                if(knockGuide.activeSelf==true)
-                {
-                    knockGuide.SetActive(false);
-                }
+                //스토리진행사운드 한번만 selfactive false면 true 로 스토리 시작
+
             }
+            
         }
     }
     public void NextScene()
     {
-        knockGuide.SetActive(true);
-        //쪽지 받고 난 다음 시간 지연 더 늘리려면 여기
+        // 코르틴으로 true 와 액티브 트루
+        knockGuide.SetActive(true);        
         knockRoom = true;
+
+        //쪽지 받고 난 다음 시간 지연 더 늘리려면 여기
         Invoke("KnockRoom",15f);
         Invoke("KnockRoom",20f);
         arirangAndStop.Play();
@@ -67,10 +76,6 @@ public class Knock : MonoBehaviour
     {
         stopSinging.Play();
         knockRoom = false;
-        if(knockGuide.activeSelf==true)
-        {
-            knockGuide.SetActive(false);
-        }
         Invoke("Recede",8f);
         Invoke("ReStartSing",11f);
         
