@@ -36,14 +36,15 @@ public class RoomButton : MonoBehaviour
                 godSound.GodWalk();
                 fadeUI.Fadem();
                 this.GetComponent<UIFADE>().Fadem();
+                this.GetComponent<AudioSource>().Stop();
             }
             else if(this.gameObject.name == "Touch_two"&countE==0)
             {
                 countE ++;
                 godSound.GodEat();
                 fadeUI.Fadem();
-                this.GetComponent<UIFADE>().Fadem();
-                Invoke("ActPolice",6f);
+                this.GetComponent<UIFADE>().Fadem();                
+                Invoke("ActPolice",7.5f);
                 
             }
             

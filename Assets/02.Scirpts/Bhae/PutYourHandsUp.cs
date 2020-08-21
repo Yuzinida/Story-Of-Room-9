@@ -15,7 +15,7 @@ public class PutYourHandsUp : MonoBehaviour
 
     IEnumerator canvers()
     {
-        yield return new WaitForSeconds(33f);
+        yield return new WaitForSeconds(32f);
         canvas1.SetActive (false);
         canvas2.SetActive (true);
         GameObject.Find("Canvas2").GetComponent<UIFADE>().Fadem();

@@ -46,7 +46,7 @@ public class PoliceMove : MonoBehaviour
     void ActWalk()
     {
         godWalk.SetActive(true);
-        // 옆방소리들리기 시작! 사부작사부작 걷는소리
+        
         
     }
 }
