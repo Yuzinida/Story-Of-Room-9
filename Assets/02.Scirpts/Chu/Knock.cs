@@ -6,18 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class Knock : MonoBehaviour
 {
-    AudioSource knockWall,knockRoomSound,knockRoomSound2,arirangAndStop,stopSinging,reStartSing,violence,blackOut,playerTo;
+    AudioSource knockWall,knockRoomSound,knockRoomSound2,stopSinging,reStartSing,violence,blackOut,playerTo;
     
     bool knockRoom = false;
     int count = 0;
-    GameObject knockGuide;
+    GameObject knockGuide,arirangAndStop;
     private void Awake()
     {
         
         knockWall = this.GetComponent<AudioSource>();
         knockRoomSound = GameObject.Find("KnockRoom").GetComponent<AudioSource>();
         knockRoomSound2 = GameObject.Find("KnockRoom2").GetComponent<AudioSource>();
-        arirangAndStop = GameObject.Find("ArirangAndStop").GetComponent<AudioSource>();
+        arirangAndStop = GameObject.Find("PlayStory").transform.GetChild(3).gameObject;
         stopSinging = GameObject.Find("StopSinging").GetComponent<AudioSource>();
         reStartSing = GameObject.Find("ReStartSing").GetComponent<AudioSource>();
         violence = GameObject.Find("Violence").GetComponent<AudioSource>();
@@ -42,14 +42,18 @@ public class Knock : MonoBehaviour
                 if(knockGuide.activeSelf==true)
                 {
                     knockGuide.SetActive(false);
-                    // .Stop();
+                    GameObject.Find("KnockRoom2").SetActive(false);
                 }
             }
             else if(knockRoom == true && count >=4 )
             {
                 count = 0;
                 knockRoomSound.Play();
-                //스토리진행사운드 한번만 selfactive false면 true 로 스토리 시작
+                if(arirangAndStop.activeSelf==false)
+                {
+                    arirangAndStop.SetActive(true);
+                    MainStory();
+                }
 
             }
             
@@ -60,26 +64,25 @@ public class Knock : MonoBehaviour
         // 코르틴으로 true 와 액티브 트루
         knockGuide.SetActive(true);        
         knockRoom = true;
-
-        //쪽지 받고 난 다음 시간 지연 더 늘리려면 여기
-        Invoke("KnockRoom",15f);
-        Invoke("KnockRoom",20f);
-        arirangAndStop.Play();
-        Invoke("StopSinging",37f);
     }
-    void KnockRoom()
+    void MainStory()
     {
-        knockRoomSound2.Play();
+        StartCoroutine("MainStoryStart");
     }
-    // // 아리랑 노래 끊고, 멀어지는 순사, 노크 반응차단
-    void StopSinging()
+    IEnumerator MainStoryStart()
     {
+        yield return new WaitForSeconds(10f);  //////////// 아리랑 노래 녹음한다음 녹음초수에 맞춰서 스탑시키는 음악 나오는 시간 적기 수정
         stopSinging.Play();
         knockRoom = false;
-        Invoke("Recede",8f);
-        Invoke("ReStartSing",11f);
-        
+        yield return new WaitForSeconds(8f);
+        Recede();
+        yield return new WaitForSeconds(3f);
+        ReStartSing();
+        yield return new WaitForSeconds(20.5f);
+        Violence();
     }
+    // // 아리랑 노래 끊고, 멀어지는 순사, 노크 반응차단
+   
     // // 발걸음 멀어지는 코드
     void Recede()
     {
@@ -96,7 +99,6 @@ public class Knock : MonoBehaviour
     void ReStartSing()
     {
         reStartSing.Play();
-        Invoke("Violence",20.5f);
     }
     void Violence()
     {
