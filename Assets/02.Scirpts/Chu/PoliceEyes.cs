@@ -18,7 +18,7 @@ public class PoliceEyes : MonoBehaviour
     {
         if(other.CompareTag("Police"))
         {
-            Invoke("Down",1.5f);            
+            Invoke("Down",0.5f);            
             obSound.Play();
         }
     }
