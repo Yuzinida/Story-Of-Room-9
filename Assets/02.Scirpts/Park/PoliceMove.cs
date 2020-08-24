@@ -27,7 +27,7 @@ public class PoliceMove : MonoBehaviour
     void StepBack()
     {
         
-        Invoke("StepBackStart",6f);  // 지켜보는 시간 조정
+        Invoke("StepBackStart",5f);  // 돌아가기시작하는 발자국 소리타이밍
         
     }
     void StepBackStart()

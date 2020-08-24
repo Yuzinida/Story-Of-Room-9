@@ -69,10 +69,10 @@ public class GodSound : MonoBehaviour
 
             iTween.MoveTo(this.gameObject, ht);
 
-            Invoke("OutLight",12f);
+            Invoke("OutLight",9f);
 
             //ㅅㅡㅌㅗㄹㅣ ㅅㅣㅈㅏㄱ
-            Invoke("StartStory",15f);
+            Invoke("StartStory",12f);
        }
        
         

@@ -14,7 +14,8 @@ public class LetterUI : MonoBehaviour
     {
         if(other.CompareTag("Hand"))
         {
-            GameObject.Find("KnockWall").GetComponent<Knock>().NextScene();
+            GameObject.Find("PlayStory").transform.GetChild(1).gameObject.SetActive(true);
+
             GameObject.Find("Touch_Letter").transform.GetChild(1).gameObject.SetActive(true);
             // GameObject.Find("Touch_Letter").transform.GetChild(1).transform.LookAt(target);
             this.gameObject.SetActive(false);
