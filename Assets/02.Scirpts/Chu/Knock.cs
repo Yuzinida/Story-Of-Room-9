@@ -6,17 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class Knock : MonoBehaviour
 {
-    AudioSource knockWall,knockRoomSound,knockRoomSound2,stopSinging,reStartSing,violence,blackOut,playerTo;
+    AudioSource knockWall,knockRoomSound,stopSinging,reStartSing,violence,blackOut,playerTo;
     
     bool knockRoom = false;
     int count = 0;
-    GameObject knockGuide,arirangAndStop;
+    public GameObject knockGuide,arirangAndStop;
     private void Awake()
     {
         
         knockWall = this.GetComponent<AudioSource>();
         knockRoomSound = GameObject.Find("KnockRoom").GetComponent<AudioSource>();
-        knockRoomSound2 = GameObject.Find("KnockRoom2").GetComponent<AudioSource>();
         arirangAndStop = GameObject.Find("PlayStory").transform.GetChild(3).gameObject;
         stopSinging = GameObject.Find("StopSinging").GetComponent<AudioSource>();
         reStartSing = GameObject.Find("ReStartSing").GetComponent<AudioSource>();
@@ -33,11 +32,12 @@ public class Knock : MonoBehaviour
         if(other.gameObject.CompareTag("Hand") ){
             knockWall.Play();
             count += 1;
+            print(count);
             if(knockRoom == false)
             {
                 count = 0;
             }
-            else if(knockRoom == true && count >=1 )
+            if(knockRoom == true && count >=1 )
             {
                 if(knockGuide.activeSelf==true)
                 {
@@ -45,7 +45,7 @@ public class Knock : MonoBehaviour
                     GameObject.Find("KnockRoom2").SetActive(false);
                 }
             }
-            else if(knockRoom == true && count >=4 )
+            if(knockRoom == true && count >=4 )
             {
                 count = 0;
                 knockRoomSound.Play();
