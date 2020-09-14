@@ -9,7 +9,7 @@ public class AdviserSound : MonoBehaviour
     void Start()
     {
         Hashtable ht = new Hashtable();
-        ht.Add("time",25f);
+        ht.Add("time",20f);
         ht.Add("path",iTweenPath.GetPath("Adviser"));
         ht.Add("easetype",iTween.EaseType.linear);
 

@@ -17,6 +17,8 @@ public class LetterUI : MonoBehaviour
             GameObject.Find("PlayStory").transform.GetChild(1).gameObject.SetActive(true);
 
             GameObject.Find("Touch_Letter").transform.GetChild(1).gameObject.SetActive(true);
+            GameObject.Find("LetterSound").GetComponent<AudioSource>().Play();
+            
             // GameObject.Find("Touch_Letter").transform.GetChild(1).transform.LookAt(target);
             this.gameObject.SetActive(false);
         }

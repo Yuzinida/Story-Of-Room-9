@@ -25,6 +25,12 @@ public class Knock : MonoBehaviour
         knockGuide = this.transform.GetChild(0).gameObject;
     }
 
+    // test
+    private void Start()
+    {
+        StartCoroutine("MainStoryStart");        
+    }
+    // test
 
     //노크 이벤트
     private void OnTriggerEnter(Collider other)
@@ -71,17 +77,19 @@ public class Knock : MonoBehaviour
     }
     IEnumerator MainStoryStart()
     {
-        yield return new WaitForSeconds(10f);  //////////// 아리랑 노래 녹음한다음 녹음초수에 맞춰서 스탑시키는 음악 나오는 시간 적기 수정
+        yield return new WaitForSeconds(16f);  //////////// 아리랑 노래 녹음한다음 녹음초수에 맞춰서 스탑시키는 음악 나오는 시간 적기 수정
         stopSinging.Play();
+        
         knockRoom = false;
         yield return new WaitForSeconds(8f);
         Recede();
-        yield return new WaitForSeconds(3f);
-        ReStartSing();
-        yield return new WaitForSeconds(20.5f);
+
+        yield return new WaitForSeconds(8f);
+        reStartSing.Play();
+        
+        yield return new WaitForSeconds(20.5f);  // timer check 애국가 끊어야될 시간
         Violence();
     }
-    // // 아리랑 노래 끊고, 멀어지는 순사, 노크 반응차단
    
     // // 발걸음 멀어지는 코드
     void Recede()
@@ -96,15 +104,12 @@ public class Knock : MonoBehaviour
         iTween.MoveTo(stopSinging.gameObject, ht);
     }    
     // // 발걸음 멀어지는 코드와 동시에 다시 개기듯 노래 또 부르기 시작하는 장면 
-    void ReStartSing()
-    {
-        reStartSing.Play();
-    }
+   
     void Violence()
     {
         violence.Play();
-        Invoke("PlayerTo",10f);
-        Invoke("BlackOut",14f);
+        Invoke("PlayerTo",9f);
+        Invoke("BlackOut",13f);  // 씬 마무리 타임 설정
         Hashtable ht2 = new Hashtable();
         ht2.Add("time",15f);
         ht2.Add("path",iTweenPath.GetPath("violence"));
@@ -126,7 +131,7 @@ public class Knock : MonoBehaviour
     {
         blackOut.Play();
         GameObject.Find("door").GetComponent<Animator>().SetTrigger("DoorOpen");
-        Invoke("Fade_Out",0.5f);
+        Invoke("Fade_Out",1f);
         
     }
     void Fade_Out()
@@ -134,7 +139,7 @@ public class Knock : MonoBehaviour
          //set start color
          SteamVR_Fade.Start(Color.clear, 0f);
          //set and start fade to
-         SteamVR_Fade.Start(Color.black, 1f);
+         SteamVR_Fade.Start(Color.black, 2f);
 
          //다음씬으로!
          StartCoroutine("NextDRoom");

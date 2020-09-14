@@ -21,6 +21,7 @@ public class MoveFade : MonoBehaviour
         StartCoroutine("StartF");
         StartCoroutine("LightOff");
         StartCoroutine("SoundOff");
+        StartCoroutine("FadeIn");
     }
     private void Update()
     {
@@ -43,11 +44,24 @@ public class MoveFade : MonoBehaviour
         }
     }
 
+    IEnumerator FadeIn()
+    {
+        yield return new WaitForSeconds(2f);
+        for(float f = 0f; f < 10.9f; f+=0.1f)
+        {
+            dRoomLight.intensity+=0.1f;
+            yield return null;
+        }
+        
+
+    }
+
     IEnumerator StartF()
     {
         yield return new WaitForSeconds(2f);
         left.SetActive(true);
         right.SetActive(true);
+        yield return new WaitForSeconds(2f);
         ad.SetActive(true);
     }
     IEnumerator LightOff()

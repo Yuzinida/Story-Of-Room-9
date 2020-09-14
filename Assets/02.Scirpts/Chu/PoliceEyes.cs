@@ -18,7 +18,7 @@ public class PoliceEyes : MonoBehaviour
     {
         if(other.CompareTag("Police"))
         {
-            Invoke("Down",0.5f);            
+            Invoke("Down",0.4f);            
             obSound.Play();
         }
     }
@@ -26,7 +26,7 @@ public class PoliceEyes : MonoBehaviour
     void Down()
     {
         Hashtable ht = new Hashtable();
-        ht.Add("time",0.2f);
+        ht.Add("time",0.1f);
         ht.Add("path",iTweenPath.GetPath("Down"));
         ht.Add("easetype",iTween.EaseType.linear);
 
