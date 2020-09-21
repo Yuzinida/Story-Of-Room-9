@@ -23,26 +23,26 @@ public class MoveFade : MonoBehaviour
         StartCoroutine("SoundOff");
         StartCoroutine("FadeIn");
     }
-    private void Update()
-    {
-        if(isLightOff == true)
-        {
-            dRoomLight.intensity-=0.2f;
-            if(dRoomLight.intensity <= 0.0f)
-            {
-                isLightOff = false;      
-            }
-        }
+    // private void Update()
+    // {
+    //     // if(isLightOff == true)
+    //     // {
+    //     //     dRoomLight.intensity-=0.2f;
+    //     //     if(dRoomLight.intensity <= 0.0f)
+    //     //     {
+    //     //         isLightOff = false;      
+    //     //     }
+    //     // }
 
-        if(isSoundOff == true)
-        {
-            dRoomSound.volume-=0.001f;
-            if(dRoomSound.volume <= 0.0f)
-            {
-                isSoundOff = false;      
-            }
-        }
-    }
+    //     // if(isSoundOff == true)
+    //     // {
+    //     //     dRoomSound.volume-=0.001f;
+    //     //     if(dRoomSound.volume <= 0.0f)
+    //     //     {
+    //     //         isSoundOff = false;      
+    //     //     }
+    //     // }
+    // }
 
     IEnumerator FadeIn()
     {
@@ -66,13 +66,23 @@ public class MoveFade : MonoBehaviour
     }
     IEnumerator LightOff()
     {
-        yield return new WaitForSeconds(26f);
-        isLightOff = true;
+        yield return new WaitForSeconds(25f);
+        for(float f = 10.9f; f >= 0f; f-=0.2f)
+        {
+            dRoomLight.intensity-=0.2f;
+            yield return null;
+        }
+        // isLightOff = true;
     }
 
     IEnumerator SoundOff()
     {
-        yield return new WaitForSeconds(30f);
-        isSoundOff = true;
+        yield return new WaitForSeconds(28f);
+        for(float f = 0.3f; f >= 0f; f-=0.001f)
+        {
+            dRoomSound.volume-=0.001f;
+            yield return null;
+        }
+        //isSoundOff = true;
     }
 }

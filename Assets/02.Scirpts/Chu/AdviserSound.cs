@@ -9,7 +9,7 @@ public class AdviserSound : MonoBehaviour
     void Start()
     {
         Hashtable ht = new Hashtable();
-        ht.Add("time",20f);
+        ht.Add("time",22f);
         ht.Add("path",iTweenPath.GetPath("Adviser"));
         ht.Add("easetype",iTween.EaseType.linear);
 
@@ -24,15 +24,15 @@ public class AdviserSound : MonoBehaviour
 
     IEnumerator DRoomSound()
     {
-        yield return new WaitForSeconds(25f);
+        yield return new WaitForSeconds(22f);
 
         dRoom.Play();
 
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(11f);
 
         rainStart.Play();   
 
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(8f);
 
         SceneManager.LoadScene(5);
 
