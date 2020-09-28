@@ -14,9 +14,12 @@ public class Tutorial2to3 : MonoBehaviour
     {
         //touchTwo = GameObject.Find("Touch_two").GetComponent<Transform>();
         //godSound = GameObject.Find("GodSounds").GetComponent<GodSound>();
-        Tutorial1 = GameObject.Find("Tutorial1------------------").transform.GetChild(0).gameObject;
-        Tutorial2 = GameObject.Find("Tutorial2------------------").transform.GetChild(0).gameObject;
-        Tutorial3 = GameObject.Find("Tutorial3------------------").transform.GetChild(0).gameObject;
+        Tutorial1 = GameObject.Find("Tutorial1------------------");
+        //Tutorial1 = GameObject.Find("Tutorial1------------------").transform.GetChild(0).gameObject;
+        Tutorial2 = GameObject.Find("Tutorial2------------------");
+        //Tutorial2 = GameObject.Find("Tutorial2------------------").transform.GetChild(0).gameObject;
+        //Tutorial3 = GameObject.Find("Tutorial3------------------").transform.GetChild(0).gameObject;
+        Tutorial3 = GameObject.Find("Tutorial3------------------");
     }
 
     public void OnClick()
@@ -25,8 +28,8 @@ public class Tutorial2to3 : MonoBehaviour
         Invoke("ShowTutorial3", 0.5f);
         Debug.LogFormat("튜토리얼3 생성!");
 
-        Invoke("DeleteTutorial1", 0.5f);
-        Invoke("DeleteTutorial2", 0.5f);
+        Invoke("DeleteTutorial1", 0.0f);
+        Invoke("DeleteTutorial2", 0.0f);
         Debug.LogFormat("튜토리얼1,2 없어짐!");
     }
 
