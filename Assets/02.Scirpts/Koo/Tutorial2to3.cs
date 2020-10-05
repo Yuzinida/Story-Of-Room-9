@@ -5,21 +5,29 @@ using UnityEngine.UI;
 
 public class Tutorial2to3 : MonoBehaviour
 {
-    public GameObject Tutorial1;
+    public GameObject Tutorial1_1;
+    public GameObject Tutorial1_2;
+    public GameObject Tutorial1_3;
     public GameObject Tutorial2;
     public GameObject Tutorial3;
 
 
     private void Start()
     {
+
         //touchTwo = GameObject.Find("Touch_two").GetComponent<Transform>();
         //godSound = GameObject.Find("GodSounds").GetComponent<GodSound>();
-        Tutorial1 = GameObject.Find("Tutorial1------------------");
         //Tutorial1 = GameObject.Find("Tutorial1------------------").transform.GetChild(0).gameObject;
-        Tutorial2 = GameObject.Find("Tutorial2------------------");
         //Tutorial2 = GameObject.Find("Tutorial2------------------").transform.GetChild(0).gameObject;
         //Tutorial3 = GameObject.Find("Tutorial3------------------").transform.GetChild(0).gameObject;
-        Tutorial3 = GameObject.Find("Tutorial3------------------");
+
+        //Tutorial1 = GameObject.Find("Tutorial1------------------");
+        //Tutorial2 = GameObject.Find("Tutorial2------------------");
+        //Tutorial3 = GameObject.Find("Tutorial3------------------");
+
+
+
+
     }
 
     public void OnClick()
@@ -28,17 +36,13 @@ public class Tutorial2to3 : MonoBehaviour
         Invoke("ShowTutorial3", 0.5f);
         Debug.LogFormat("튜토리얼3 생성!");
 
-        Invoke("DeleteTutorial1", 0.0f);
+        
         Invoke("DeleteTutorial2", 0.0f);
         Debug.LogFormat("튜토리얼1,2 없어짐!");
     }
 
+    
 
-
-    void DeleteTutorial1() // 튜토리얼1가 없어진다.
-    {
-        Tutorial1.SetActive(false);
-    }
 
     void DeleteTutorial2() // 튜토리얼2가 없어진다.
     {

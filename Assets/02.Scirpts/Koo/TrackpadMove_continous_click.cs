@@ -43,7 +43,7 @@ public class TrackpadMove_continous_click : MonoBehaviour
             int facingx = 0;
             int rotateDirect = 0;
 
-            Debug.LogFormat("left (x,y) = ({0},{1})", pos_leftHand.x, pos_leftHand.y);
+            //Debug.LogFormat("left (x,y) = ({0},{1})", pos_leftHand.x, pos_leftHand.y);
 
             rotateDirect = (pos_leftHand.x > 0) ? 1 : -1;
             //facingx = ((pos_leftHand.x > Abs(0.3f)) && (pos_leftHand.y < Abs(0.8f))) ? rotateDirect : 0;
@@ -53,7 +53,7 @@ public class TrackpadMove_continous_click : MonoBehaviour
             //facingx = (rot.x > 0.0f) ? 1 : -1;
             RotateView(facingx);    // +-45도 회전
 
-            Debug.LogFormat("facingx : {0}", facingx);  // x 위치가 0보다 크면 1 작으면 -1이 나온다.
+            //Debug.LogFormat("facingx : {0}", facingx);  // x 위치가 0보다 크면 1 작으면 -1이 나온다.
         }
 
 
@@ -86,7 +86,7 @@ public class TrackpadMove_continous_click : MonoBehaviour
             int facingy = 0;
             int moveDirect = 0;
 
-            Debug.LogFormat("right (x,y) = ({0},{1})", pos_rightHand.x, pos_rightHand.y);    
+            //Debug.LogFormat("right (x,y) = ({0},{1})", pos_rightHand.x, pos_rightHand.y);    
 
 
             moveDirect = (pos_rightHand.y > 0) ? 1 : -1;
@@ -96,7 +96,7 @@ public class TrackpadMove_continous_click : MonoBehaviour
 
             MoveLookAt(facingy);     // 앞 뒤 이동
 
-            Debug.LogFormat("facing : {0}", facingy);    // y 위치가 0보다 크면 1,작으면 -1이 나온다.
+            //Debug.LogFormat("facing : {0}", facingy);    // y 위치가 0보다 크면 1,작으면 -1이 나온다.
         }
     }
     void MoveLookAt(int facingy)
