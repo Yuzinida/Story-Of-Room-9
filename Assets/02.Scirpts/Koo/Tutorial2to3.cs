@@ -33,10 +33,12 @@ public class Tutorial2to3 : MonoBehaviour
     public void OnClick()
     {
         Debug.LogFormat("유아이클릭");
-        Invoke("ShowTutorial3", 0.5f);
+        Invoke("ShowTutorial3", 0.3f);
         Debug.LogFormat("튜토리얼3 생성!");
+        this.GetComponent<AudioSource>().Play();
 
-        
+
+
         Invoke("DeleteTutorial2", 0.0f);
         Debug.LogFormat("튜토리얼1,2 없어짐!");
     }

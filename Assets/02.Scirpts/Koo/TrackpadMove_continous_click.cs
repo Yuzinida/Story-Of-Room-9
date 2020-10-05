@@ -19,6 +19,10 @@ public class TrackpadMove_continous_click : MonoBehaviour
     //public SteamVR_Action_Boolean trackPadTouch;    // 트랙패드 닿았을 때
     public SteamVR_Action_Vector2 trackPadPosition; // 트랙패드 터치 위치 / 클릭 위치
 
+
+    //public AudioClip[] ad; // 발소리 추가 해준다.
+
+
     private void Awake()
     {
         // 왼쪽 클릭, 오른쪽 클릭을 나눈다.
@@ -35,6 +39,12 @@ public class TrackpadMove_continous_click : MonoBehaviour
     }
     void Update()
     {
+
+        
+        //Invoke("footSound()", 0.5f);
+
+
+
         // 왼쪽 트랙패드의 x축 기준 45도 회전을 한다.---------------------------------------------------------------
         if (trackPadClick.GetState(leftHand))
         {
@@ -122,5 +132,11 @@ public class TrackpadMove_continous_click : MonoBehaviour
         return (x > 0) ? x : -x;
     }
 
+
+    //public void footSound()
+    //{
+    //    GetComponent<AudioSource>().clip = ad[Random.Range(0, 5)];
+    //    GetComponent<AudioSource>().Play();
+    //}
 
 }
