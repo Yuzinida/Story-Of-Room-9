@@ -9,7 +9,7 @@ public class DRoom_mgr : MonoBehaviour
     UIFADE dCanvas;
     GameObject startUI;
     AudioSource backSound,ending;
-    Animator sunlight;
+    Animator sunlight,dooropen;
     // Start is called before the first frame update
     private void Start()
     {
@@ -19,6 +19,10 @@ public class DRoom_mgr : MonoBehaviour
         backSound = GameObject.Find("BackSound").GetComponent<AudioSource>();
         ending = GameObject.Find("Ending").GetComponent<AudioSource>();
         sunlight = GameObject.Find("DayLight").GetComponent<Animator>();
+
+        dooropen = GameObject.Find("Ddoor (2)").GetComponent<Animator>();
+
+        //StartCoroutine("Test");
     }
     IEnumerator PlayDRoom()
     {
@@ -35,7 +39,7 @@ public class DRoom_mgr : MonoBehaviour
 
         yield return new WaitForSeconds(10.5f);
 
-        dCanvas.Fadem();
+        dCanvas.Fadem();        
 
         //처음 독방 알려주는 글씨 지속시간
         yield return new WaitForSeconds(5f);
@@ -51,26 +55,40 @@ public class DRoom_mgr : MonoBehaviour
 
     public void Ending()
     {
-        // 날씨 변화 시작 
-        sunlight.SetBool("Daylight",true);
-        GameObject.Find("RainDrop").gameObject.SetActive(false);
         StartCoroutine("EndSound");
         
     }
 
     IEnumerator EndSound()
     {
-        yield return new WaitForSeconds(3.5f);
-        ending.Play();
-        // 날씨 스탑 (소리먼저들려도 되고)       
+        yield return new WaitForSeconds(2f);
+        // 날씨 변화 시작         
+        sunlight.SetBool("Daylight",true);  
 
-        yield return new WaitForSeconds(12f);
+        yield return new WaitForSeconds(2f);
+        GameObject.Find("Patience").GetComponent<AudioSource>().Play();   
+
+           
+
+        yield return new WaitForSeconds(3f);
+        GameObject.Find("Sunsound").GetComponent<AudioSource>().Play();   // 시작타이밍
+
+        yield return new WaitForSeconds(3f);        //해뜨는 애니메 시간에 따라 시작되는 시간 더 늦추기
+        ending.Play();
+        GameObject.Find("Patience").GetComponent<AudioSource>().Stop();
+        
+        yield return new WaitForSeconds(0.3f);
+        dooropen.SetTrigger("OpenDoor"); 
+
+        yield return new WaitForSeconds(10f);
         //set start color
         SteamVR_Fade.Start(Color.clear, 0f);
         //set and start fade to
         SteamVR_Fade.Start(Color.white, 6f);
 
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(4.5f);
         SceneManager.LoadScene(6);
     }
+
+    
 }
