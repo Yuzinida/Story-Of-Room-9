@@ -61,16 +61,16 @@ public class DRoom_mgr : MonoBehaviour
 
     IEnumerator EndSound()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         // 날씨 변화 시작         
         sunlight.SetBool("Daylight",true);  
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         GameObject.Find("Patience").GetComponent<AudioSource>().Play();   
 
            
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         GameObject.Find("Sunsound").GetComponent<AudioSource>().Play();   // 시작타이밍
 
         yield return new WaitForSeconds(3f);        //해뜨는 애니메 시간에 따라 시작되는 시간 더 늦추기

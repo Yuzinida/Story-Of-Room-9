@@ -13,7 +13,7 @@ public class Room9AgText : MonoBehaviour
 
     public GameObject canvas1,canvas2,canvas4,canvas5;
     GameObject final;
-    AudioSource manse;
+    AudioSource manse,mansemen;
 
     WhiteInOut ableTime;
 
@@ -24,6 +24,7 @@ public class Room9AgText : MonoBehaviour
         ableTime = GameObject.Find("BackSound").GetComponent<WhiteInOut>();
         final = GameObject.Find("Final").transform.GetChild(0).gameObject;
         manse = GameObject.Find("Manse").GetComponent<AudioSource>();
+        mansemen = GameObject.Find("ManseMen").GetComponent<AudioSource>();
 
     }
 
@@ -64,11 +65,15 @@ public class Room9AgText : MonoBehaviour
             manse.Play();
         }
 
-        yield return new WaitForSeconds(19f);
+        yield return new WaitForSeconds(15f);
+        mansemen.Play();
+
+        yield return new WaitForSeconds(4f);  //밑에도 동일한게 있음
         SteamVR_Fade.Start(Color.black, 4f);
         
         yield return new WaitForSeconds(6f);
         DontDestroyOnLoad(manse.gameObject);
+        DontDestroyOnLoad(mansemen.gameObject);
         SceneManager.LoadScene(7);
     }
    public void can1()
@@ -114,11 +119,15 @@ public class Room9AgText : MonoBehaviour
 
     IEnumerator SkipFinal()
     {
-        yield return new WaitForSeconds(19f);
+        yield return new WaitForSeconds(15f);
+        mansemen.Play();
+
+        yield return new WaitForSeconds(4f);
         SteamVR_Fade.Start(Color.black, 4f);
         
         yield return new WaitForSeconds(6f);
         DontDestroyOnLoad(manse.gameObject);
+        DontDestroyOnLoad(mansemen.gameObject);
         SceneManager.LoadScene(7);
 
     }
