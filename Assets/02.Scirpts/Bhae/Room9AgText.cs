@@ -11,7 +11,7 @@ public class Room9AgText : MonoBehaviour
     public float duration = 0.4f;
 
 
-    public GameObject canvas1,canvas2,canvas3,canvas4,canvas5;
+    public GameObject canvas1,canvas2,canvas4,canvas5;
     GameObject final;
     AudioSource manse;
 
@@ -53,8 +53,6 @@ public class Room9AgText : MonoBehaviour
         yield return new WaitForSeconds(3f);
         can2();
         yield return new WaitForSeconds(3f);
-        can3();
-        yield return new WaitForSeconds(3f);
         can4();
         yield return new WaitForSeconds(3f);
         can5();
@@ -82,12 +80,6 @@ public class Room9AgText : MonoBehaviour
     public void can2()
     {
         CanvasGroup canvGroup = canvas2.GetComponent<CanvasGroup>();
-        StartCoroutine(DoFade(canvGroup, canvGroup.alpha, tFaded ? 1 : 0));
-        //tFaded = !tFaded;
-    }
-      public void can3()
-    {
-        CanvasGroup canvGroup = canvas3.GetComponent<CanvasGroup>();
         StartCoroutine(DoFade(canvGroup, canvGroup.alpha, tFaded ? 1 : 0));
         //tFaded = !tFaded;
     }

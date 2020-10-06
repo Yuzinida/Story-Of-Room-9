@@ -90,5 +90,12 @@ public class DRoom_mgr : MonoBehaviour
         SceneManager.LoadScene(6);
     }
 
-    
+    //  IEnumerator Test()
+    //  {
+    //      yield return new WaitForSeconds(5f);       
+    //     ending.Play();
+        
+    //     yield return new WaitForSeconds(0.3f);
+    //     dooropen.SetTrigger("OpenDoor"); 
+    //  }
 }
