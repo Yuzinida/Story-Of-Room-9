@@ -13,6 +13,7 @@ public class Sign : MonoBehaviour
     Transform target;
     AudioSource soundFadeout;
     public  GameObject name;
+    int count = 0;
 
     private void Start()
     {
@@ -28,6 +29,11 @@ public class Sign : MonoBehaviour
     {
         if(other.CompareTag("Hand"))
         {
+            if(count == 0)
+            {
+                count += 1;
+                GameObject.Find("Sign").GetComponent<AudioSource>().Play();
+            }
             line = name.transform;      
             line.position = new Vector3(0.042f,0.15f,0.9f);
             line.rotation = Quaternion.Euler(25.6f,0,0);
