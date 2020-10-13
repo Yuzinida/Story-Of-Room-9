@@ -22,7 +22,7 @@ public class DRoom_mgr : MonoBehaviour
 
         dooropen = GameObject.Find("Ddoor (2)").GetComponent<Animator>();
 
-        //StartCoroutine("Test");
+        //StartCoroutine("EndSound");  //test
     }
     IEnumerator PlayDRoom()
     {
@@ -61,26 +61,28 @@ public class DRoom_mgr : MonoBehaviour
 
     IEnumerator EndSound()
     {
-        yield return new WaitForSeconds(4f);
-        // 날씨 변화 시작         
-        sunlight.SetBool("Daylight",true);  
+        GameObject.Find("BirdFinal").GetComponent<AudioSource>().Play();
 
-        yield return new WaitForSeconds(0.5f);
-        GameObject.Find("Patience").GetComponent<AudioSource>().Play();   
+        yield return new WaitForSeconds(5.5f);
+        GameObject.Find("Patience").GetComponent<AudioSource>().Play();  
+
+        yield return new WaitForSeconds(1f);
+         // 날씨 변화 시작         
+        sunlight.SetBool("Daylight",true);  
 
            
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(7f);
         GameObject.Find("Sunsound").GetComponent<AudioSource>().Play();   // 시작타이밍
 
         yield return new WaitForSeconds(3f);        //해뜨는 애니메 시간에 따라 시작되는 시간 더 늦추기
         ending.Play();
         GameObject.Find("Patience").GetComponent<AudioSource>().Stop();
         
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         dooropen.SetTrigger("OpenDoor"); 
 
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(8f);
         //set start color
         SteamVR_Fade.Start(Color.clear, 0f);
         //set and start fade to
