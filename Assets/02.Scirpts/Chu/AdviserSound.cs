@@ -28,7 +28,10 @@ public class AdviserSound : MonoBehaviour
 
         dRoom.Play();
 
-        yield return new WaitForSeconds(11f);
+        yield return new WaitForSeconds(9f);
+        GameObject.Find("Pain").GetComponent<AudioSource>().Play();
+
+        yield return new WaitForSeconds(4f);
 
         rainStart.Play();   
 
