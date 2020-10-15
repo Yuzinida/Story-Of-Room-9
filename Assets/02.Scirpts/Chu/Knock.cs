@@ -26,10 +26,10 @@ public class Knock : MonoBehaviour
     }
 
     // test
-    private void Start()
-    {
-        StartCoroutine("MainStoryStart");        
-    }
+    // private void Start()
+    // {
+    //     StartCoroutine("MainStoryStart");        
+    // }
     // test
 
     //노크 이벤트
