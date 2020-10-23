@@ -130,6 +130,7 @@ public class Knock : MonoBehaviour
    //1021
     void Violence()
     {
+        GameObject.Find("Touch_Letter").SetActive(false);
         violence.Play();
         Invoke("PlayerTo",9f);
         Invoke("BlackOut",13f);  // 씬 마무리 타임 설정
