@@ -12,7 +12,7 @@ public class Tutorial1_1to1_2 : MonoBehaviour
     public GameObject Tutorial2;
     public GameObject Tutorial3;
 
-
+    GameObject ding1;
     private void Start()
     {
         //touchTwo = GameObject.Find("Touch_two").GetComponent<Transform>();
@@ -33,6 +33,7 @@ public class Tutorial1_1to1_2 : MonoBehaviour
 
         //InitialTutorialSetting();
         Invoke("InitialTutorialSetting()", 0.2f);
+        ding1 = GameObject.Find("Player").transform.GetChild(0).gameObject;
 
     }
 
@@ -49,7 +50,11 @@ public class Tutorial1_1to1_2 : MonoBehaviour
         if (other.CompareTag("Hand"))
         {
             Debug.LogFormat("컨트롤러가 목표지점 안에 들어왔다");
-            this.GetComponent<AudioSource>().Play();
+
+            if(ding1.activeSelf == false)
+            {
+                ding1.SetActive(true);
+            }
 
             Invoke("ShowTutorial1_2", 0.3f);
             Debug.LogFormat("튜토리얼2 생성!");  // x 위치가 0보다 크면 1 작으면 -1이 나온다.

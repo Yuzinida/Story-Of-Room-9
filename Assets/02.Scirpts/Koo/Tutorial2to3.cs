@@ -11,7 +11,7 @@ public class Tutorial2to3 : MonoBehaviour
     public GameObject Tutorial2;
     public GameObject Tutorial3;
 
-
+    GameObject ding4;
     private void Start()
     {
 
@@ -25,17 +25,20 @@ public class Tutorial2to3 : MonoBehaviour
         //Tutorial2 = GameObject.Find("Tutorial2------------------");
         //Tutorial3 = GameObject.Find("Tutorial3------------------");
 
-
+        ding4 = GameObject.Find("Player").transform.GetChild(3).gameObject;
 
 
     }
 
     public void OnClick()
     {
+        if(ding4.activeSelf == false)
+            {
+                ding4.SetActive(true);
+            }
         Debug.LogFormat("유아이클릭");
         Invoke("ShowTutorial3", 0.3f);
         Debug.LogFormat("튜토리얼3 생성!");
-        this.GetComponent<AudioSource>().Play();
 
 
 

@@ -15,8 +15,8 @@ public class AddForce : MonoBehaviour
         //animation으로 이 박스를 움직인다.
 
         // GetComponent<Rigidbody>().AddForce(transform.up*-800);
-        this.GetComponent<Animator>().SetTrigger("LetterMove");
-        StartCoroutine("Paper");
+        //this.GetComponent<Animator>().SetTrigger("LetterMove");
+        //StartCoroutine("Paper");
         
         // showLetter = GameObject.Find("LetterUI").GetComponent<UIFADE>();
     }
@@ -25,17 +25,22 @@ public class AddForce : MonoBehaviour
     {
         if(other.gameObject.name=="floor")
         {
-            this.GetComponent<AudioSource>().Play();
+            count ++ ;
+            if(count < 5)
+            {
+                this.GetComponent<AudioSource>().Play();
+            }
+            
         }
         
     }
 
-    IEnumerator Paper()
-    {
-        yield return new WaitForSeconds(0.4f);
+    // IEnumerator Paper()
+    // {
+    //     yield return new WaitForSeconds(0.4f);
 
-        letterAnimator.SetTrigger("ShowLetter");  //ㅇㅕㄱㅣㅇㅛ
-    }
+    //     letterAnimator.SetTrigger("ShowLetter");  //ㅇㅕㄱㅣㅇㅛ
+    // }
 
     // private void OnTriggerEnter(Collider other)
     // {

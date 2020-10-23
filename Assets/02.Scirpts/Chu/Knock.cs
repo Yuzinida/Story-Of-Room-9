@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Knock : MonoBehaviour
 {
     AudioSource knockWall,knockRoomSound,stopSinging,reStartSing,violence,blackOut,playerTo;
-    
+    CanvasGroup knockHow;
     bool knockRoom = false;
     int count = 0;
     public GameObject knockGuide,arirangAndStop;
@@ -23,12 +23,13 @@ public class Knock : MonoBehaviour
         blackOut = GameObject.Find("BlackOut").GetComponent<AudioSource>();
         playerTo = GameObject.Find("PlayerTo").GetComponent<AudioSource>();
         knockGuide = this.transform.GetChild(0).gameObject;
+        knockHow = GameObject.Find("HowKnock").GetComponent<CanvasGroup>();
     }
 
     // test
     // private void Start()
     // {
-    //     StartCoroutine("MainStoryStart");        
+    //     Violence();        
     // }
     // test
 
@@ -59,6 +60,7 @@ public class Knock : MonoBehaviour
                 {
                     arirangAndStop.SetActive(true);
                     MainStory();
+                    HowKnock();
                 }
 
             }
@@ -71,23 +73,44 @@ public class Knock : MonoBehaviour
         knockGuide.SetActive(true);        
         knockRoom = true;
     }
+    void HowKnock()
+    {
+        StartCoroutine("HowTo");
+    }
+    IEnumerator HowTo()
+    {
+        yield return new WaitForSeconds(6f);
+        for(float f = 0f; f < 1f; f+=0.01f)
+        {
+            knockHow.alpha+=0.01f;
+            yield return null;
+        }
+        yield return new WaitForSeconds(7f);
+        for(float f = 1f; f > 0f; f-=0.01f)
+        {
+            knockHow.alpha-=0.01f;
+            yield return null;
+        }
+    }
     void MainStory()
     {
         StartCoroutine("MainStoryStart");
     }
     IEnumerator MainStoryStart()
     {
-        yield return new WaitForSeconds(16f);  //////////// 아리랑 노래 녹음한다음 녹음초수에 맞춰서 스탑시키는 음악 나오는 시간 적기 수정
+        yield return new WaitForSeconds(21.5f);  
         stopSinging.Play();
-        
+        reStartSing.Play();
+        GameObject.Find("ReStartSing").transform.GetChild(2).gameObject.SetActive(true); 
         knockRoom = false;
         yield return new WaitForSeconds(8f);
         Recede();
 
-        yield return new WaitForSeconds(8f);
-        reStartSing.Play();
-        
-        yield return new WaitForSeconds(20.5f);  // timer check 애국가 끊어야될 시간
+        yield return new WaitForSeconds(23.5f);
+        GameObject.Find("ReStartSing").transform.GetChild(0).gameObject.SetActive(true);
+        GameObject.Find("ReStartSing").transform.GetChild(1).gameObject.SetActive(true);
+                
+        yield return new WaitForSeconds(1.5f);  
         Violence();
     }
    
@@ -104,14 +127,14 @@ public class Knock : MonoBehaviour
         iTween.MoveTo(stopSinging.gameObject, ht);
     }    
     // // 발걸음 멀어지는 코드와 동시에 다시 개기듯 노래 또 부르기 시작하는 장면 
-   
+   //1021
     void Violence()
     {
         violence.Play();
         Invoke("PlayerTo",9f);
         Invoke("BlackOut",13f);  // 씬 마무리 타임 설정
         Hashtable ht2 = new Hashtable();
-        ht2.Add("time",15f);
+        ht2.Add("time",13f);
         ht2.Add("path",iTweenPath.GetPath("violence"));
         ht2.Add("easetype",iTween.EaseType.linear);
 
@@ -130,8 +153,8 @@ public class Knock : MonoBehaviour
     void BlackOut()
     {
         blackOut.Play();
-        GameObject.Find("door").GetComponent<Animator>().SetTrigger("DoorOpen");
-        Invoke("Fade_Out",1f);
+        GameObject.Find("door_ctr").GetComponent<Animator>().SetTrigger("DoorOpen");
+        Invoke("Fade_Out",2f);
         
     }
     void Fade_Out()

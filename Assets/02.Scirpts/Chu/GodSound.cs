@@ -45,7 +45,10 @@ public class GodSound : MonoBehaviour
         //set and start fade to
         SteamVR_Fade.Start(Color.clear, 3f);
 
-        
+        //test
+        // yield return new WaitForSeconds(2f);
+        // GodWalk();
+        //test
 
     }
    public void GodWalk()
@@ -69,10 +72,13 @@ public class GodSound : MonoBehaviour
 
             iTween.MoveTo(this.gameObject, ht);
 
-            Invoke("OutLight",9f);
+            Invoke("OutLight",8.6f);
 
             //ㅅㅡㅌㅗㄹㅣ ㅅㅣㅈㅏㄱ
             Invoke("StartStory",12f);
+
+            //쪽지 읽는 버튼 나타나는 시간
+            Invoke("Touch_Letter_Show",15f);
        }
        
         
@@ -117,6 +123,11 @@ public class GodSound : MonoBehaviour
 
         //2번째 방법
         //쪽지도 setactive(true)로 만든다.
+   }
+
+   void Touch_Letter_Show()
+   {
+       GameObject.Find("Touch_Letter").transform.GetChild(0).gameObject.SetActive(true);
    }
 
 }
